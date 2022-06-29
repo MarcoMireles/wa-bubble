@@ -39,16 +39,42 @@ if( !class_exists( 'WA_Bubble' )){
 
 		public function __construct(){
 
-			$this->define_constants(); 
-            			
+			$this->define_constants();
+
+			add_action('admin_menu',array($this,'add_menu'));
+      require_once (WA_BUBBLE_PATH . 'class.wa-bubble-settings.php');
+      $WA_Bubble_Settings = new WA_Bubble_Settings();
+
 		}
 
 		public function define_constants(){
             // Path/URL to root of this plugin, with trailing slash.
 			define ( 'WA_BUBBLE_PATH', plugin_dir_path( __FILE__ ) );
-            define ( 'WA_BUBBLE_URL', plugin_dir_url( __FILE__ ) );
-            define ( 'WA_BUBBLE_VERSION', '1.0.0' );
+      define ( 'WA_BUBBLE_URL', plugin_dir_url( __FILE__ ) );
+      define ( 'WA_BUBBLE_VERSION', '1.0.0' );
 		}
+
+		public function add_menu(){
+		  add_menu_page(
+		    esc_html__('Wa Bubble Options','wa-bubble'),
+		    'Wa Bubble',
+        'manage_options',
+        'wa_bubble_admin',
+        array($this,'wa_bubble_settings_page'),
+        'dashicons-whatsapp',
+        20
+      );
+		}
+    public function wa_bubble_settings_page(){
+      if (!current_user_can('manage_options')){
+        return;
+      }
+      if (isset($_GET['settings-updated'])){
+        add_settings_error('wa_bubble_options','wa_bubble_message',esc_html__('Settings Saved','wa-bubble'),'success');
+      }
+      settings_errors('wa_bubble_options');
+      require_once (WA_BUBBLE_PATH . 'views/settings-page.php');
+    }
 
         /**
          * Activate the plugin
@@ -70,9 +96,8 @@ if( !class_exists( 'WA_Bubble' )){
          */
         public static function uninstall(){
 
-        }       
-
-	}
+        }
+  }
 }
 
 // Plugin Instantiation
@@ -84,5 +109,5 @@ if (class_exists( 'WA_Bubble' )){
     register_uninstall_hook( __FILE__, array( 'WA_Bubble', 'uninstall' ) );
 
     // Instatiate the plugin class
-    $mv_translations = new WA_Bubble();
+    $wa_bubble = new WA_Bubble();
 }
