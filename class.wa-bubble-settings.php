@@ -229,28 +229,20 @@ if (!class_exists('WA_Bubble_Settings')){
             $new_input[$key] = sanitize_textarea_field( $value );
             break;
 
-          case 'wa_bubble_whatsapp_placeholder':
-            if( empty( $value )){
-              add_settings_error( 'wa_bubble_options', 'wa_bubble_message', esc_html__('The whatsapp number field can not be left empty','wa-bubble'), 'error' );
-              $value = esc_html__('I want more information','wa-bubble');
-            }
-            $new_input[$key] = sanitize_textarea_field( $value );
-            break;
-
-          case 'wa_bubble_whatsapp_default_message':
-            if( empty( $value )){
-              add_settings_error( 'wa_bubble_options', 'wa_bubble_message', esc_html__('The whatsapp message field can not be left empty','wa-bubble'), 'error' );
-              $value = esc_html__('I want more information','wa-bubble');
-            }
-            $new_input[$key] = sanitize_textarea_field( $value );
-            break;
-
           case 'wa_bubble_whatsapp_submit_button_text_whatsapp':
             if( empty( $value )){
               add_settings_error( 'wa_bubble_options', 'wa_bubble_message', esc_html__('The whatsapp number field can not be left empty','wa-bubble'), 'error' );
               $value = esc_html__('Send','wa-bubble');
             }
             $new_input[$key] = sanitize_text_field( $value );
+            break;
+
+          case 'wa_bubble_whatsapp_default_message':
+            $new_input[$key] = sanitize_textarea_field( $value );
+            break;
+
+          case 'wa_bubble_whatsapp_placeholder':
+            $new_input[$key] = sanitize_textarea_field( $value );
             break;
 
           default:

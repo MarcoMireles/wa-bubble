@@ -82,8 +82,8 @@ if( !class_exists( 'WA_Bubble' )){
     }
 
     public function register_scripts(){
-		  wp_register_script('wa-bubble-main-js',WA_BUBBLE_URL.'assets/js/frontend.js',array('jquery'),WA_BUBBLE_VERSION,true);
-		  wp_register_style('wa-bubble-main-css',WA_BUBBLE_URL . 'assets/css/frontend.css',array(),WA_BUBBLE_VERSION,'all');
+		  wp_register_script('wa-bubble-main-js',WA_BUBBLE_URL.'vendor/js/frontend.js',array('jquery'),WA_BUBBLE_VERSION,true);
+		  wp_register_style('wa-bubble-main-css',WA_BUBBLE_URL . 'assets/css/frontend.css',array(),WA_BUBBLE_VERSION,'all');wp_register_style('font-roboto','https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap',array(),WA_BUBBLE_VERSION,'all');
     }
 
         /**
