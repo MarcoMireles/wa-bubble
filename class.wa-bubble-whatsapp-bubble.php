@@ -6,7 +6,9 @@ if (!class_exists('WA_Bubble_Whatsapp_Bubble')){
     }
 
     public function display_whatsapp_bubble(){
-      echo 'Hello';
+
+      require (WA_BUBBLE_PATH . 'views/whatsapp-bubble.php');
+      wp_enqueue_style('wa-bubble-main-css');
     }
   }
 }

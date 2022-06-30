@@ -1,0 +1,36 @@
+#wa-bubble.whatsapp-container .whatsapp-container-icon {
+  display: flex;
+  align-items: center;
+}
+
+#wa-bubble.whatsapp-container .whatsapp-container-icon.left {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+#wa-bubble.whatsapp-container .whatsapp-container-icon.right {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+#wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon img.small {
+  width: 40px;
+  height: 40px;
+}
+#wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon img.medium {
+  width: 50px;
+  height: 50px;
+}
+#wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon img.big {
+  width: 60px;
+  height: 60px;
+}
+
+/*# sourceMappingURL=frontend.css.map */

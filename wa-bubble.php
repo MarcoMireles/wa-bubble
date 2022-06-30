@@ -48,6 +48,8 @@ if( !class_exists( 'WA_Bubble' )){
       require_once (WA_BUBBLE_PATH . 'class.wa-bubble-whatsapp-bubble.php');
       $WA_Bubble_Whatsapp_Bubble = new WA_Bubble_Whatsapp_Bubble();
 
+      add_action('wp_enqueue_scripts',array($this,'register_scripts'),999);
+
 		}
 
 		public function define_constants(){
@@ -77,6 +79,11 @@ if( !class_exists( 'WA_Bubble' )){
       }
       settings_errors('wa_bubble_options');
       require_once (WA_BUBBLE_PATH . 'views/settings-page.php');
+    }
+
+    public function register_scripts(){
+		  wp_register_script('wa-bubble-main-js',WA_BUBBLE_URL.'assets/js/frontend.js',array('jquery'),WA_BUBBLE_VERSION,true);
+		  wp_register_style('wa-bubble-main-css',WA_BUBBLE_URL . 'assets/css/frontend.css',array(),WA_BUBBLE_VERSION,'all');
     }
 
         /**
