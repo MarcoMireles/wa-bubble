@@ -1,22 +1,23 @@
+#wa-bubble {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+}
+
+#wa-bubble.left {
+  left: 15px;
+}
+
+#wa-bubble.right {
+  right: 15px;
+}
+
 #wa-bubble.whatsapp-container .whatsapp-container-icon {
-  display: flex;
-  align-items: center;
-}
-
-#wa-bubble.whatsapp-container .whatsapp-container-icon.left {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
-
-#wa-bubble.whatsapp-container .whatsapp-container-icon.right {
-  display: flex;
-  align-items: center;
-  justify-content: right;
+  display: block;
 }
 
 #wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
 }
@@ -31,6 +32,21 @@
 #wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon img.big {
   width: 60px;
   height: 60px;
+}
+
+.wa-bubble.whatsapp-popup-container {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.wa-bubble.whatsapp-popup-box {
+  width: 270px;
+  border-radius: 15px;
+  background-color: #FAFAFA;
+  position: absolute;
+  left: -240px;
+  bottom: 15px;
 }
 
 /*# sourceMappingURL=frontend.css.map */

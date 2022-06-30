@@ -1,21 +1,22 @@
-//ICONO
-#wa-bubble.whatsapp-container .whatsapp-container-icon{
-  display: flex;
-  align-items: center;
+//CONTENEDOR PRINCIPAL
+#wa-bubble{
+  display: block;
+  position: fixed;
+  bottom: 20px;
 }
-#wa-bubble.whatsapp-container .whatsapp-container-icon.left{
-  display: flex;
-  align-items: center;
-  justify-content: left;
+#wa-bubble.left{
+  left: 15px;
 }
-#wa-bubble.whatsapp-container .whatsapp-container-icon.right{
-  display: flex;
-  align-items: center;
-  justify-content: right;
+#wa-bubble.right{
+  right: 15px;
 }
 
+//ICONO
+#wa-bubble.whatsapp-container .whatsapp-container-icon{
+  display: block;
+}
 #wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon{
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   img.small{
@@ -30,4 +31,19 @@
     width: 60px;
     height: 60px;
   }
+}
+
+//POPUP
+.wa-bubble.whatsapp-popup-container{
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+.wa-bubble.whatsapp-popup-box{
+  width: 270px;
+  border-radius: 15px;
+  background-color: #FAFAFA;
+  position: absolute;
+  left: calc(-270px + 30px);
+  bottom: 15px;
 }
