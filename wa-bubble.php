@@ -45,6 +45,9 @@ if( !class_exists( 'WA_Bubble' )){
       require_once (WA_BUBBLE_PATH . 'class.wa-bubble-settings.php');
       $WA_Bubble_Settings = new WA_Bubble_Settings();
 
+      require_once (WA_BUBBLE_PATH . 'class.wa-bubble-whatsapp-bubble.php');
+      $WA_Bubble_Whatsapp_Bubble = new WA_Bubble_Whatsapp_Bubble();
+
 		}
 
 		public function define_constants(){
