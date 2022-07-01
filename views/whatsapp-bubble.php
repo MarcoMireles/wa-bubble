@@ -6,9 +6,9 @@
         <p class="close-popup"><img src="<?php echo WA_BUBBLE_URL . 'assets/img/close.png'  ?>" alt=""></p>
       </div>
       <div class="wa-bubble whatsapp-popup-content">
-        <p class="popup-message"><?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_main_message_whatsapp'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_main_message_whatsapp']) : '';  ?></p>
+        <p class="popup-message"><?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_main_message_whatsapp'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_main_message_whatsapp']) : 'Receive information about our services:';  ?></p>
         <textarea id="popup-text-message"
-                  placeholder="<?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_placeholder'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_placeholder']) : '';  ?>"
+                  placeholder="<?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_placeholder'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_placeholder']) : 'I want more information about your services';  ?>"
         ><?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_default_message'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_default_message']) : '';  ?></textarea>
       </div>
       <div class="wa-bubble whatsapp-popup-footer">
