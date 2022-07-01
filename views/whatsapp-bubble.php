@@ -13,7 +13,7 @@
       </div>
       <div class="wa-bubble whatsapp-popup-footer">
         <a
-          href="https://api.whatsapp.com/send/?phone=<?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_number'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_number']) : '8122008029';  ?>&text="
+          href="https://api.whatsapp.com/send/?phone=<?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_number'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_number']) : '525555555555';  ?>&text="
           class="popup-submit-button" target="_blank"><?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_submit_button_text_whatsapp'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_submit_button_text_whatsapp']) : 'Send';  ?></a>
       </div>
     </div>

@@ -113,7 +113,7 @@ if( !class_exists( 'WA_Bubble' )){
          * Uninstall the plugin
          */
         public static function uninstall(){
-          delete_option('wa_bubble_options'); 
+          delete_option('wa_bubble_options');
         }
   }
 }

@@ -138,7 +138,8 @@ if (!class_exists('WA_Bubble_Settings')){
     // Whatsapp Number
     public function wa_bubble_whatsapp_number_callback($args){
       ?>
-      <input type="tel" name="wa_bubble_options[wa_bubble_whatsapp_number]" id="wa_bubble_whatsapp_number" value="<?php echo isset(self::$options['wa_bubble_whatsapp_number']) ? esc_attr(self::$options['wa_bubble_whatsapp_number']) : ''; ?>">
+      <input type="tel" name="wa_bubble_options[wa_bubble_whatsapp_number]" id="wa_bubble_whatsapp_number" value="<?php echo isset(self::$options['wa_bubble_whatsapp_number']) ? esc_attr(self::$options['wa_bubble_whatsapp_number']) : ''; ?>" placeholder="525555555555"><br>
+      <small>Write your whatsapp including your LADA code without spaces. </small>
       <?php
     }
 
