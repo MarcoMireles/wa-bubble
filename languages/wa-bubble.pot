@@ -1,0 +1,140 @@
+# Blank WordPress Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WA "
+"Bubble v1.0.0\n"
+"Report-Msgid-Bugs-To: "
+"Translator Name "
+"<translations@example."
+"com>\n"
+"POT-Creation-Date: "
+"2022-07-01 13:24-0500\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Your "
+"Name <you@example.com>\n"
+"Language-Team: Your Team "
+"<translations@example."
+"com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/"
+"plain; charset=UTF-8\n"
+"Content-Transfer-"
+"Encoding: 8bit\n"
+"Plural-Forms: "
+"nplurals=2; plural=n != "
+"1;\n"
+"X-Textdomain-Support: "
+"yesX-Generator: Poedit "
+"1.6.4\n"
+"X-Poedit-SourceCharset: "
+"UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;esc_html_e;"
+"esc_html_x:1,2c;"
+"esc_html__;esc_attr_e;"
+"esc_attr_x:1,2c;"
+"esc_attr__;_ex:1,2c;"
+"_nx:4c,1,2;"
+"_nx_noop:4c,1,2;_x:1,2c;"
+"_n:1,2;_n_noop:1,2;"
+"__ngettext:1,2;"
+"__ngettext_noop:1,2;_c,"
+"_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.1\n"
+"X-Poedit-"
+"SearchPath-0: .\n"
+
+#: class.wa-bubble-settings.php:31
+msgid "Whatsapp Functions"
+msgstr ""
+
+#: class.wa-bubble-settings.php:39
+msgid "Whatsapp Styles"
+msgstr ""
+
+#: class.wa-bubble-settings.php:47
+msgid ""
+"Enter the whatsapp number"
+msgstr ""
+
+#: class.wa-bubble-settings.php:59
+msgid ""
+"Enter the main message "
+"of whatsapp"
+msgstr ""
+
+#: class.wa-bubble-settings.php:71
+msgid ""
+"Enter a placeholder text"
+msgstr ""
+
+#: class.wa-bubble-settings.php:83
+msgid ""
+"Enter a default text for "
+"the whatsapp message"
+msgstr ""
+
+#: class.wa-bubble-settings.php:95
+msgid ""
+"Enter the submit button "
+"text"
+msgstr ""
+
+#: class.wa-bubble-settings.php:107
+msgid ""
+"Select the side of the "
+"whatsapp bubble"
+msgstr ""
+
+#: class.wa-bubble-settings.php:123
+msgid ""
+"Select the size of the "
+"WhatsApp bubble"
+msgstr ""
+
+#: class.wa-bubble-settings.php:218
+#: class.wa-bubble-settings.php:226
+#: class.wa-bubble-settings.php:234
+msgid ""
+"The whatsapp number "
+"field can not be left "
+"empty"
+msgstr ""
+
+#: class.wa-bubble-settings.php:219
+msgid "525555555555"
+msgstr ""
+
+#: class.wa-bubble-settings.php:227
+msgid ""
+"Contact me by whatsapp"
+msgstr ""
+
+#: class.wa-bubble-settings.php:235
+msgid "Send"
+msgstr ""
+
+#: views/settings-page.php:7
+msgid "Functions Options"
+msgstr ""
+
+#: views/settings-page.php:8
+msgid "Style Options"
+msgstr ""
+
+#: views/settings-page.php:22
+msgid "Save Settings"
+msgstr ""
+
+#: wa-bubble.php:65
+msgid "Wa Bubble Options"
+msgstr ""
+
+#: wa-bubble.php:79
+msgid "Settings Saved"
+msgstr ""

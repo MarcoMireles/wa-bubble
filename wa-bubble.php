@@ -40,6 +40,7 @@ if( !class_exists( 'WA_Bubble' )){
 		public function __construct(){
 
 			$this->define_constants();
+      $this->load_textdomain();
 
 			add_action('admin_menu',array($this,'add_menu'));
       require_once (WA_BUBBLE_PATH . 'class.wa-bubble-settings.php');
@@ -85,6 +86,13 @@ if( !class_exists( 'WA_Bubble' )){
 		  wp_register_script('wa-bubble-main-js',WA_BUBBLE_URL.'vendor/js/frontend.js',array('jquery'),WA_BUBBLE_VERSION,true);
 		  wp_register_style('wa-bubble-main-css',WA_BUBBLE_URL . 'assets/css/frontend.css',array(),WA_BUBBLE_VERSION,'all');wp_register_style('font-roboto','https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap',array(),WA_BUBBLE_VERSION,'all');
     }
+    public function load_textdomain(){
+      load_plugin_textdomain(
+        'wa-bubble',
+        false,
+        dirname(plugin_dir_path(__FILE__)).'/languages',
+      );
+    }
 
         /**
          * Activate the plugin
@@ -105,7 +113,7 @@ if( !class_exists( 'WA_Bubble' )){
          * Uninstall the plugin
          */
         public static function uninstall(){
-
+          delete_option('wa_bubble_options'); 
         }
   }
 }
