@@ -1,4 +1,4 @@
-=== Wa Bubble ===
+=== Bubble Wa ===
 Contributors: marcomireles
 Tags: whatsapp, whatsapp bubble, whatsapp button, wa bubble
 Donate link: https://www.buymeacoffee.com/marcode

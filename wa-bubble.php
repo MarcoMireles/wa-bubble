@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Plugin Name: Wa Bubble
+* Plugin Name: Bubble Wa
 * Plugin URI:
 * Description: Whatsapp bubble. Floating bubble for your visitors to contact you more easily and quickly.
 * Version: 1.0
