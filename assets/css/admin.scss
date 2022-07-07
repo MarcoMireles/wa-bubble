@@ -1,0 +1,30 @@
+#wpcontent{
+  background-color: #FFFFFF;
+  h1.title-wa-bubble{
+    font-family: 'Roboto';
+    font-weight: 500;
+  }
+  .nav-tab-wrapper{
+    .nav-tab{
+      background-color: #FFFFFF;
+      border-radius: 7px 7px 0px 0px;
+    }
+    .nav-tab-active{
+      background-image: linear-gradient(120deg,#25d366 0%,#25d366 100%);
+      color:#FFFFFF;
+    }
+  }
+  form{
+    .submit{
+      input{
+        background-image: linear-gradient(120deg,#25d366 0%,#25d366 100%);
+        border:0px;
+        outline: 1px solid transparent;
+        &:focus,&:active,&:visited{
+          outline: 1px solid transparent;
+          box-shadow:none;
+        }
+      }
+    }
+  }
+}

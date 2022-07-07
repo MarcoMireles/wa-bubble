@@ -1,9 +1,9 @@
 <?php
 
 /**
-* Plugin Name: Bubble Wa
-* Plugin URI:
-* Description: Whatsapp bubble. Floating bubble for your visitors to contact you more easily and quickly.
+* Plugin Name: Bubble Chat
+* Plugin URI: https://marcode.site/plugin/bubble-chat/
+* Description: Bubble Chat. Floating bubble for your visitors to contact you more easily and quickly.
 * Version: 1.0
 * Requires at least: 5.6
 * Requires PHP: 7.0
@@ -15,18 +15,18 @@
 * Domain Path: /languages
 */
 /*
-Wa Bubble is free software: you can redistribute it and/or modify
+Bubble Chat is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
 any later version.
  
-Wa Bubble is distributed in the hope that it will be useful,
+Bubble Chat is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
  
 You should have received a copy of the GNU General Public License
-along with Wa Bubble. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
+along with Bubble Chat. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -50,7 +50,7 @@ if( !class_exists( 'WA_Bubble' )){
       $WA_Bubble_Whatsapp_Bubble = new WA_Bubble_Whatsapp_Bubble();
 
       add_action('wp_enqueue_scripts',array($this,'register_scripts'),999);
-
+      add_action('admin_enqueue_scripts', array($this,'register_admin_scripts'), 999);
 		}
 
 		public function define_constants(){
@@ -61,8 +61,8 @@ if( !class_exists( 'WA_Bubble' )){
 		}
 
 		public function add_menu(){
-		  add_menu_page(
-		    esc_html__('Wa Bubble Options','wa-bubble'),
+       add_menu_page(
+		    esc_html__('Bubble Chat Options','wa-bubble'),
 		    'Wa Bubble',
         'manage_options',
         'wa_bubble_admin',
@@ -84,8 +84,19 @@ if( !class_exists( 'WA_Bubble' )){
 
     public function register_scripts(){
 		  wp_register_script('wa-bubble-main-js',WA_BUBBLE_URL.'vendor/js/frontend.js',array('jquery'),WA_BUBBLE_VERSION,true);
-		  wp_register_style('wa-bubble-main-css',WA_BUBBLE_URL . 'assets/css/frontend.css',array(),WA_BUBBLE_VERSION,'all');wp_register_style('font-roboto','https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap',array(),WA_BUBBLE_VERSION,'all');
+		  wp_register_style('wa-bubble-main-css',WA_BUBBLE_URL . 'assets/css/frontend.css',array(),WA_BUBBLE_VERSION,'all');
+		  wp_register_style('font-roboto','https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap',array(),WA_BUBBLE_VERSION,'all');
     }
+
+    public function register_admin_scripts($hook){
+
+      if( $hook == 'toplevel_page_wa_bubble_admin'){
+        wp_enqueue_style( 'wa-bubble-admin', WA_BUBBLE_URL . 'assets/css/admin.css',array(),WA_BUBBLE_VERSION,'all' );
+        wp_register_style('font-roboto','https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap',array(),WA_BUBBLE_VERSION,'all');
+      }
+    }
+
+
     public function load_textdomain(){
       load_plugin_textdomain(
         'wa-bubble',
