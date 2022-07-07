@@ -1,4 +1,4 @@
-=== Bubble Wa ===
+=== Bubble Chat ===
 Contributors: marcomireles
 Tags: bubble chat, chat
 Donate link: https://www.buymeacoffee.com/marcode
