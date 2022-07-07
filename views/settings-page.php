@@ -1,5 +1,5 @@
-<div class="wrap">
-  <h1><?php echo esc_html(get_admin_page_title());?></h1>
+<div class="wrap wa-bubble-admin-container">
+  <h1 class="title-wa-bubble"><?php echo esc_html(get_admin_page_title());?></h1>
   <?php
   $actve_tab = isset($_GET['tab']) ? $_GET['tab'] : 'wa_functions_options';
   ?>

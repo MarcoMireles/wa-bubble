@@ -1,0 +1,26 @@
+#wpcontent {
+  background-color: #FFFFFF;
+}
+#wpcontent h1.title-wa-bubble {
+  font-family: "Roboto";
+  font-weight: 500;
+}
+#wpcontent .nav-tab-wrapper .nav-tab {
+  background-color: #FFFFFF;
+  border-radius: 7px 7px 0px 0px;
+}
+#wpcontent .nav-tab-wrapper .nav-tab-active {
+  background-image: linear-gradient(120deg, #25d366 0%, #25d366 100%);
+  color: #FFFFFF;
+}
+#wpcontent form .submit input {
+  background-image: linear-gradient(120deg, #25d366 0%, #25d366 100%);
+  border: 0px;
+  outline: 1px solid transparent;
+}
+#wpcontent form .submit input:focus, #wpcontent form .submit input:active, #wpcontent form .submit input:visited {
+  outline: 1px solid transparent;
+  box-shadow: none;
+}
+
+/*# sourceMappingURL=admin.css.map */

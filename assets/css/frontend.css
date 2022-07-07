@@ -19,26 +19,54 @@
 }
 
 #wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon {
-  display: block;
+  display: flex;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(120deg, #25d366 0%, #25d366 100%);
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  animation: morph 5s linear infinite;
+  transform-style: preserve-3d;
+  outline: 1px solid transparent;
+  will-change: border-radius;
 }
 #wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon:hover {
   cursor: pointer;
+}
+#wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon img {
+  fill: #ffffff;
 }
 #wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon img.small {
   width: 40px;
   height: 40px;
 }
 #wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon img.medium {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 #wa-bubble.whatsapp-container .whatsapp-container-icon .whatsapp-icon img.big {
   width: 60px;
   height: 60px;
 }
 
+@keyframes morph {
+  0%, 100% {
+    border-radius: 42% 58% 70% 30%/45% 45% 55% 55%;
+    transform: translate(0) rotate(0.02deg);
+  }
+  34% {
+    border-radius: 70% 30% 46% 54%/30% 29% 71% 70%;
+    transform: translateY(5px) rotate(0.02deg);
+  }
+  50% {
+    transform: translate(0) rotate(0.02deg);
+  }
+  67% {
+    border-radius: 100% 60% 60% 100%/100% 100% 60% 60%;
+    transform: translateY(-3px) rotate(0.02deg);
+  }
+}
 .wa-bubble.whatsapp-popup-container {
   width: 100%;
   position: relative;
@@ -74,7 +102,7 @@
 }
 
 .wa-bubble.whatsapp-popup-header {
-  background-color: #29A71A;
+  background-image: linear-gradient(120deg, #25d366 0%, #25d366 100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,7 +147,7 @@
   background-color: #f8f8f8;
 }
 .wa-bubble.whatsapp-popup-footer .popup-submit-button {
-  background-color: #29A71A;
+  background-image: linear-gradient(120deg, #25d366 0%, #25d366 100%);
   color: #FFFFFF;
   text-decoration: none;
   padding: 15px 30px 15px 30px;
