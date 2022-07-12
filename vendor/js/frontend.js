@@ -4,11 +4,7 @@ jQuery(document).ready(function ($){
    var btnWhatsappPopup = $('.whatsapp-popup-box');
    var btnSendWhatsapp = $('.popup-submit-button');
    var btnMessageWhatsapp = $('#popup-text-message');
-
-   console.log(btnExit)
-   console.log(btnWhatsapp)
-   console.log(btnWhatsappPopup)
-
+   var currentDataSend = $(btnSendWhatsapp).attr('data-send');
 
    btnWhatsapp.on('click', function(){
       btnWhatsappPopup.toggleClass('show');
@@ -18,11 +14,11 @@ jQuery(document).ready(function ($){
    });
 
    btnSendWhatsapp.on('click', function (){
-      var newMessage = btnMessageWhatsapp.val();
-      var currentValue = $(btnSendWhatsapp).attr('href');
-      console.log(currentValue)
-      $(btnSendWhatsapp).attr('href',currentValue+ newMessage );
-   });
+      var newMessage = '';
+       newMessage = btnMessageWhatsapp.val();
+      $(btnSendWhatsapp).attr('href',currentDataSend );
+      $(btnSendWhatsapp).attr('href',currentDataSend + newMessage );
 
+   });
 
 });
