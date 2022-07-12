@@ -134,6 +134,22 @@ if (!class_exists('WA_Bubble_Settings')){
         )
       );
 
+      // Select the size of the bubble
+      add_settings_field(
+        'wa_bubble_animation',
+        esc_html__('Animated bubble?','wa-bubble'),
+        array($this,'wa_bubble_animation_callback'),
+        'wa_bubble_page2',
+        'wa_bubble_style_section',
+        array(
+          'items' => array(
+            'yes',
+            'no'
+          ),
+          'label_for' => 'wa_bubble_bubble_size'
+        )
+      );
+
     }
     // Whatsapp Number
     public function wa_bubble_whatsapp_number_callback($args){
@@ -200,6 +216,25 @@ if (!class_exists('WA_Bubble_Settings')){
           <option value="<?php echo esc_attr( $item ); ?>"
             <?php
             isset( self::$options_style['wa_bubble_bubble_size'] ) ? selected( $item, self::$options_style['wa_bubble_bubble_size'], true ) : '';
+            ?>
+          >
+            <?php echo esc_html( ucfirst( $item ) ); ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+      <?php
+    }
+
+    // Select the size of the bubble
+    public function wa_bubble_animation_callback($args){
+      ?>
+      <select id="wa_bubble_animation" name="wa_bubble_options_style[wa_bubble_animation]">
+        <?php
+        foreach( $args['items'] as $item ):
+          ?>
+          <option value="<?php echo esc_attr( $item ); ?>"
+            <?php
+            isset( self::$options_style['wa_bubble_animation'] ) ? selected( $item, self::$options_style['wa_bubble_animation'], true ) : '';
             ?>
           >
             <?php echo esc_html( ucfirst( $item ) ); ?>

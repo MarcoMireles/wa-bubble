@@ -17,14 +17,22 @@ if (WA_Bubble_Settings::$options['wa_bubble_whatsapp_number'] != '' || !empty(WA
           ><?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_default_message'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_default_message']) : '';  ?></textarea>
         </div>
         <div class="wa-bubble whatsapp-popup-footer">
-          <a
-            href="https://api.whatsapp.com/send/?phone=<?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_number'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_number']) : '525555555555';  ?>&text="
+          <a href=""
+            data-send="https://api.whatsapp.com/send/?phone=<?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_number'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_number']) : '525555555555';  ?>&text="
             class="popup-submit-button" target="_blank"><?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_submit_button_text_whatsapp'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_submit_button_text_whatsapp']) : 'Send';  ?></a>
         </div>
       </div>
     </div>
     <div class="wa-bubble whatsapp-container-icon ">
-      <div class="wa-bubble whatsapp-icon ">
+      <?php
+
+      $animation = WA_Bubble_Settings::$options_style['wa_bubble_animation'];
+      $animated ='';
+      if($animation == 'yes'){
+        $animated = 'animation-morph';
+      }
+      ?>
+      <div class="wa-bubble whatsapp-icon <?php echo $animated;  ?> <?php echo (isset(WA_Bubble_Settings::$options_style['wa_bubble_bubble_size'])) ? esc_attr(WA_Bubble_Settings::$options_style['wa_bubble_bubble_size']) : 'medium';  ?>">
         <img class="<?php echo (isset(WA_Bubble_Settings::$options_style['wa_bubble_bubble_size'])) ? esc_attr(WA_Bubble_Settings::$options_style['wa_bubble_bubble_size']) : 'medium';  ?>" src="<?php echo WA_BUBBLE_URL . 'assets/img/whatsapp-blanco.svg'  ?>" alt="whatsapp">
       </div>
     </div>
