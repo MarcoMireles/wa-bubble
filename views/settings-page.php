@@ -1,8 +1,7 @@
 <div class="wrap wa-bubble-admin-container">
   <h1 class="title-wa-bubble"><?php echo esc_html(get_admin_page_title());?></h1>
   <?php
-  $tab = esc_html($_GET['tab']);
-  $actve_tab = isset($tab) ? $tab : 'wa_functions_options';
+  $actve_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'wa_functions_options';
   ?>
   <h2 class="nav-tab-wrapper">
     <a href="?page=wa_bubble_admin&tab=wa_functions_options" class="nav-tab <?php echo $actve_tab == 'wa_functions_options' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Functions Options','wa-bubble') ?></a>
