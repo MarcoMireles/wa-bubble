@@ -10,6 +10,7 @@ if (!class_exists('WA_Bubble_Whatsapp_Bubble')){
       wp_enqueue_style('font-roboto');
       wp_enqueue_style('wa-bubble-main-css');
       wp_enqueue_script('wa-bubble-main-js');
+      wa_bubble_options();
     }
   }
 }

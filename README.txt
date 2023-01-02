@@ -21,6 +21,5 @@ Search or upload the Bubble Chat plugin
 Activate and Ready
 
 == Screenshots ==
-1. https://marcode.site/wp-content/uploads/2022/07/Bubble-chat.jpg
-2. https://marcode.site/wp-content/uploads/2022/07/Bubble-chat.gif
- 
+1. Screenshot
+2. Animation
