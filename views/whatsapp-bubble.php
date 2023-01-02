@@ -26,13 +26,21 @@ if (WA_Bubble_Settings::$options['wa_bubble_whatsapp_number'] != '' || !empty(WA
     <div class="wa-bubble whatsapp-container-icon ">
       <?php
 
-      $animation = WA_Bubble_Settings::$options_style['wa_bubble_animation'];
+      $animation = strtolower(WA_Bubble_Settings::$options_style['wa_bubble_animation']);
       $animated ='';
-      if($animation == 'yes'){
-        $animated = 'animation-morph';
+      switch ($animation) {
+        case "morph":
+          $animated = 'animation-morph';
+          break;
+        case "pulse":
+          $animated = 'animation-pulse';
+          break;
+        default:
+          $animated ='';
+          break;
       }
       ?>
-      <div class="wa-bubble whatsapp-icon <?php echo $animated;  ?> <?php echo (isset(WA_Bubble_Settings::$options_style['wa_bubble_bubble_size'])) ? esc_attr(WA_Bubble_Settings::$options_style['wa_bubble_bubble_size']) : 'medium';  ?>">
+      <div class="wa-bubble whatsapp-icon <?php echo $animated; ?> <?php echo (isset(WA_Bubble_Settings::$options_style['wa_bubble_bubble_size'])) ? esc_attr(WA_Bubble_Settings::$options_style['wa_bubble_bubble_size']) : 'medium';  ?>">
         <img class="<?php echo (isset(WA_Bubble_Settings::$options_style['wa_bubble_bubble_size'])) ? esc_attr(WA_Bubble_Settings::$options_style['wa_bubble_bubble_size']) : 'medium';  ?>" src="<?php echo WA_BUBBLE_URL . 'assets/img/whatsapp-blanco.svg'  ?>" alt="whatsapp">
       </div>
     </div>

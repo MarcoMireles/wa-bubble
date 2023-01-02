@@ -9,6 +9,7 @@ if (!class_exists('WA_Bubble_Settings')){
       self::$options = get_option('wa_bubble_options');
       self::$options_style = get_option('wa_bubble_options_style');
       add_action('admin_init',array($this,'admin_init'));
+
 //      var_dump(self::$options);
 //      var_dump(self::$options_style);
     }
@@ -134,7 +135,7 @@ if (!class_exists('WA_Bubble_Settings')){
         )
       );
 
-      // Select the size of the bubble
+      // Select the animation of the bubble
       add_settings_field(
         'wa_bubble_animation',
         esc_html__('Animated bubble?','wa-bubble'),
@@ -143,10 +144,34 @@ if (!class_exists('WA_Bubble_Settings')){
         'wa_bubble_style_section',
         array(
           'items' => array(
-            'yes',
-            'no'
+            'morph',
+            'pulse'
           ),
-          'label_for' => 'wa_bubble_bubble_size'
+          'label_for' => 'wa_bubble_animation_callback'
+        )
+      );
+
+      // Submit button text for Whatsapp
+      add_settings_field(
+        'wa_bubble_whatsapp_bottom_position',
+        esc_html__('Bottom distance (px)','wa-bubble'),
+        array($this,'wa_bubble_whatsapp_bottom_position_callback'),
+        'wa_bubble_page2',
+        'wa_bubble_style_section',
+        array(
+          'label_for' => 'wa_bubble_whatsapp_bottom_position'
+        )
+      );
+
+      // Submit button text for Whatsapp
+      add_settings_field(
+        'wa_bubble_whatsapp_side_position',
+        esc_html__('Side distance (px)','wa-bubble'),
+        array($this,'wa_bubble_whatsapp_side_position_callback'),
+        'wa_bubble_page2',
+        'wa_bubble_style_section',
+        array(
+          'label_for' => 'wa_bubble_whatsapp_side_position'
         )
       );
 
@@ -225,7 +250,7 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
-    // Select the size of the bubble
+    // Select the animation
     public function wa_bubble_animation_callback($args){
       ?>
       <select id="wa_bubble_animation" name="wa_bubble_options_style[wa_bubble_animation]">
@@ -243,6 +268,23 @@ if (!class_exists('WA_Bubble_Settings')){
       </select>
       <?php
     }
+
+
+    // Distancia del fondo
+    public function wa_bubble_whatsapp_bottom_position_callback($args){
+      ?>
+      <input type="number" name="wa_bubble_options_style[wa_bubble_whatsapp_bottom_position]" id="wa_bubble_whatsapp_bottom_position" value="<?php echo isset(self::$options_style['wa_bubble_whatsapp_bottom_position']) ? esc_attr(self::$options_style['wa_bubble_whatsapp_bottom_position']) : ''; ?>" max="500" min="0" placeholder="20">
+      <?php
+    }
+
+    // Distancia del fondo
+    public function wa_bubble_whatsapp_side_position_callback($args){
+      ?>
+      <input type="number" name="wa_bubble_options_style[wa_bubble_whatsapp_side_position]" id="wa_bubble_whatsapp_side_position" value="<?php echo isset(self::$options_style['wa_bubble_whatsapp_side_position']) ? esc_attr(self::$options_style['wa_bubble_whatsapp_side_position']) : ''; ?>" max="500" min="0" placeholder="20">
+      <?php
+    }
+
+
 
     public function wa_bubble_validate( $input ){
       $new_input = array();
