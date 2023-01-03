@@ -3,9 +3,9 @@ Contributors: marcomireles
 Tags: bubble chat, chat
 Donate link: https://www.buymeacoffee.com/marcode
 Requires at least: 4.7
-Tested up to: 6.0
+Tested up to: 6.1.1
 Requires PHP: 7.0
-Stable tag: 1.0
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,3 +23,16 @@ Activate and Ready
 == Screenshots ==
 1. Screenshot
 2. Animation
+
+== Changelog ==
+
+= 1.3.0 2023-01-03 =
+
+*Fix - Javascript data.
+
+= 1.2.0 2023-01-03 =
+
+*Select morph or pulse effect
+*Select gap distance from bottom and sides
+
+*Fix - Changes were not applied.

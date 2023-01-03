@@ -1,19 +1,19 @@
 <?php
 
 /**
-* Plugin Name: Bubble Chat
-* Plugin URI: https://marcode.site/plugin/bubble-chat/
-* Description: Bubble Chat. Floating bubble for your visitors to contact you more easily and quickly.
-* Version: 1.0
-* Requires at least: 5.6
-* Requires PHP: 7.0
-* Author: Marco Mireles
-* Author URI: https://marcomireles.com/
-* License: GPL v2 or later
-* License URI: https://www.gnu.org/licenses/gpl-2.0.html
-* Text Domain: wa-bubble
-* Domain Path: /languages
-*/
+ * Plugin Name: Bubble Chat
+ * Plugin URI: https://marcode.site/plugin/bubble-chat/
+ * Description: Bubble Chat is a whatsapp chat bubble. Floating bubble for your visitors to contact you more easily and quickly.
+ * Version: 1.3
+ * Requires at least: 5.6
+ * Requires PHP: 7.0
+ * Author: Marco Mireles
+ * Author URI: https://marcomireles.com/
+ * License: GPL v2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: wa-bubble
+ * Domain Path: /languages
+ */
 /*
 Bubble Chat is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -60,7 +60,7 @@ if( !class_exists( 'WA_Bubble' )){
             // Path/URL to root of this plugin, with trailing slash.
 			define ( 'WA_BUBBLE_PATH', plugin_dir_path( __FILE__ ) );
       define ( 'WA_BUBBLE_URL', plugin_dir_url( __FILE__ ) );
-      define ( 'WA_BUBBLE_VERSION', '1.0.0' );
+      define ( 'WA_BUBBLE_VERSION', '1.3' );
 		}
 
 		public function add_menu(){
