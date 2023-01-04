@@ -21,8 +21,9 @@ Search or upload the Bubble Chat plugin
 Activate and Ready
 
 == Screenshots ==
-1. Screenshot
-2. Animation
+1. Screenshot 1
+2. Functions 2
+3. Styles 3
 
 == Changelog ==
 
