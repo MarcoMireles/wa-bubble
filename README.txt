@@ -38,5 +38,4 @@ Activate and Ready
 
 *Select morph or pulse effect
 *Select gap distance from bottom and sides
-
 *Fix - Changes were not applied.
