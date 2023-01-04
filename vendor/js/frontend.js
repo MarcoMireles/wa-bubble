@@ -6,16 +6,36 @@ jQuery(document).ready(function ($){
    var btnWhatsappPopup = $('.whatsapp-popup-box');
    var btnSendWhatsapp = $('.popup-submit-button');
    var btnMessageWhatsapp = $('#popup-text-message');
+   var animationDots = $('.animation-before');
+   var contentDescription = $('.whatsapp-content-description');
+   var interval = 0;
+
    var currentDataSend = $(btnSendWhatsapp).attr('data-send');
 
    // Open/Close bubble
    btnWhatsapp.on('click', function(){
       btnWhatsappPopup.toggleClass('show');
+      if (interval <= 0){
+         hideDots();
+         showContentDescription();
+         interval++;
+      }
    });
    btnExit.on('click', function(){
       btnWhatsappPopup.removeClass('show');
    });
 
+   function hideDots(){
+      setTimeout(function(){
+         animationDots.css('display','none');
+      }, 2000);
+   }
+   function showContentDescription(){
+      setTimeout(function(){
+         contentDescription.css('display','flex');
+      }, 2100);
+
+   }
    // SEnd Message
    btnSendWhatsapp.on('click', function (){
       var newMessage = '';

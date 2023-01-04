@@ -54,6 +54,42 @@ if (!class_exists('WA_Bubble_Settings')){
         )
       );
 
+      // Image for Whatsapp
+      add_settings_field(
+        'wa_bubble_whatsapp_image_whatsapp',
+        esc_html__('Enter the image of whatsapp bubble','wa-bubble'),
+        array($this,'wa_bubble_whatsapp_image_whatsapp_callback'),
+        'wa_bubble_page1',
+        'wa_bubble_main_section',
+        array(
+          'label_for' => 'wa_bubble_whatsapp_image_whatsapp'
+        )
+      );
+
+      // Name or title for Whatsapp
+      add_settings_field(
+        'wa_bubble_whatsapp_name_title_whatsapp',
+        esc_html__('Enter the name or title of whatsapp bubble','wa-bubble'),
+        array($this,'wa_bubble_whatsapp_name_title_whatsapp_callback'),
+        'wa_bubble_page1',
+        'wa_bubble_main_section',
+        array(
+          'label_for' => 'wa_bubble_whatsapp_name_title_whatsapp'
+        )
+      );
+
+      // Name or title for Whatsapp
+      add_settings_field(
+        'wa_bubble_whatsapp_description_whatsapp',
+        esc_html__('Enter the description of whatsapp bubble','wa-bubble'),
+        array($this,'wa_bubble_whatsapp_description_whatsapp_callback'),
+        'wa_bubble_page1',
+        'wa_bubble_main_section',
+        array(
+          'label_for' => 'wa_bubble_whatsapp_description_whatsapp'
+        )
+      );
+
       // Main message for Whatsapp
       add_settings_field(
         'wa_bubble_whatsapp_main_message_whatsapp',
@@ -175,12 +211,65 @@ if (!class_exists('WA_Bubble_Settings')){
         )
       );
 
+      // Select the side of the bubble
+      add_settings_field(
+        'wa_bubble_send_button_size',
+        esc_html__('Select the size of the send button','wa-bubble'),
+        array($this,'wa_bubble_send_button_size_callback'),
+        'wa_bubble_page2',
+        'wa_bubble_style_section',
+        array(
+          'items' => array(
+            'inline',
+            'full'
+          ),
+          'label_for' => 'wa_bubble_send_button_size'
+        )
+      );
+
     }
     // Whatsapp Number
     public function wa_bubble_whatsapp_number_callback($args){
       ?>
       <input type="tel" name="wa_bubble_options[wa_bubble_whatsapp_number]" id="wa_bubble_whatsapp_number" value="<?php echo isset(self::$options['wa_bubble_whatsapp_number']) ? esc_attr(self::$options['wa_bubble_whatsapp_number']) : ''; ?>" placeholder="525555555555"><br>
       <small>Write your whatsapp including your LADA code without spaces. </small>
+      <?php
+    }
+
+    // Whatsapp image text
+    public function wa_bubble_whatsapp_image_whatsapp_callback($args){
+      $image = isset(self::$options['wa_bubble_whatsapp_image_whatsapp']) ? esc_attr(self::$options['wa_bubble_whatsapp_image_whatsapp']) : '';
+
+
+      if( $image ) {
+        ?>
+
+        <a href="#" class="marcode-upl "><img width="60" height="60" src="<?php echo $image; ?>" /> </a>
+	      <a href="#" class="marcode-rmv">Remove image</a>
+	      <input type="hidden" name="wa_bubble_options[wa_bubble_whatsapp_image_whatsapp]" class="image-url" value="<?php echo $image; ?>">
+
+        <?php
+      }else{ ?>
+        <a href="#" class="marcode-upl button-upl">Upload image</a>
+	      <input type="hidden" class="marcode-img-2 image-url" name="wa_bubble_options[wa_bubble_whatsapp_image_whatsapp]"  value="">
+          <a href="#" class="marcode-rmv" style="display:none">Remove image</a>
+        <?php
+      }
+    }
+
+    // Whatsapp name/title text
+    public function wa_bubble_whatsapp_name_title_whatsapp_callback($args){
+      $text = isset(self::$options['wa_bubble_whatsapp_name_title_whatsapp']) ? esc_attr(self::$options['wa_bubble_whatsapp_name_title_whatsapp']) : '';
+      ?>
+      <input name="wa_bubble_options[wa_bubble_whatsapp_name_title_whatsapp]" id="wa_bubble_whatsapp_name_title_whatsapp" value="<?php echo $text;?>" />
+      <?php
+    }
+
+    // Whatsapp description text
+    public function wa_bubble_whatsapp_description_whatsapp_callback($args){
+      $text = isset(self::$options['wa_bubble_whatsapp_description_whatsapp']) ? esc_attr(self::$options['wa_bubble_whatsapp_description_whatsapp']) : '';
+      ?>
+      <input name="wa_bubble_options[wa_bubble_whatsapp_description_whatsapp]" id="wa_bubble_whatsapp_description_whatsapp" value="<?php echo $text;?>" />
       <?php
     }
 
@@ -284,6 +373,25 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
+    // Select the size send button
+    public function wa_bubble_send_button_size_callback($args){
+      ?>
+      <select id="wa_bubble_send_button_size" name="wa_bubble_options_style[wa_bubble_send_button_size]">
+        <?php
+        foreach( $args['items'] as $item ):
+          ?>
+          <option value="<?php echo esc_attr( $item ); ?>"
+            <?php
+            isset( self::$options_style['wa_bubble_send_button_size'] ) ? selected( $item, self::$options_style['wa_bubble_send_button_size'], true ) : '';
+            ?>
+          >
+            <?php echo esc_html( ucfirst( $item ) ); ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+      <?php
+    }
+
 
 
     public function wa_bubble_validate( $input ){
@@ -307,6 +415,29 @@ if (!class_exists('WA_Bubble_Settings')){
             $new_input[$key] = sanitize_textarea_field( $value );
             break;
 
+          case 'wa_bubble_whatsapp_image_whatsapp':
+            if( empty( $value )){
+              $value = WA_BUBBLE_URL . 'assets/img/marcode.png';
+            }
+            $new_input[$key] = sanitize_url( $value );
+            break;
+
+          case 'wa_bubble_whatsapp_name_title_whatsapp':
+            if( empty( $value )){
+              add_settings_error( 'wa_bubble_options', 'wa_bubble_message', esc_html__('The whatsapp title field can not be left empty','wa-bubble'), 'error' );
+              $value = esc_html__('MarCode','wa-bubble');
+            }
+            $new_input[$key] = sanitize_textarea_field( $value );
+            break;
+
+          case 'wa_bubble_whatsapp_description_whatsapp':
+            if( empty( $value )){
+              add_settings_error( 'wa_bubble_options', 'wa_bubble_message', esc_html__('The whatsapp description field can not be left empty','wa-bubble'), 'error' );
+              $value = esc_html__('Typically replies within a day','wa-bubble');
+            }
+            $new_input[$key] = sanitize_textarea_field( $value );
+            break;
+
           case 'wa_bubble_whatsapp_submit_button_text_whatsapp':
             if( empty( $value )){
               add_settings_error( 'wa_bubble_options', 'wa_bubble_message', esc_html__('The whatsapp number field can not be left empty','wa-bubble'), 'error' );
@@ -315,11 +446,8 @@ if (!class_exists('WA_Bubble_Settings')){
             $new_input[$key] = sanitize_text_field( $value );
             break;
 
-          case 'wa_bubble_whatsapp_default_message':
-            $new_input[$key] = sanitize_textarea_field( $value );
-            break;
-
           case 'wa_bubble_whatsapp_placeholder':
+          case 'wa_bubble_whatsapp_default_message':
             $new_input[$key] = sanitize_textarea_field( $value );
             break;
 

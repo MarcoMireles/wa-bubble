@@ -22,5 +22,34 @@
   outline: 1px solid transparent;
   box-shadow: none;
 }
+#wpcontent form .marcode-upl {
+  text-decoration: none;
+}
+#wpcontent form .marcode-upl:hover, #wpcontent form .marcode-upl:focus, #wpcontent form .marcode-upl:active {
+  box-shadow: none;
+  outline: none;
+  text-decoration: none;
+}
+#wpcontent form .button-upl, #wpcontent form .marcode-rmv {
+  text-decoration: none;
+  padding: 4px 8px;
+  position: relative;
+  top: -3px;
+  text-decoration: none;
+  border: 1px solid #2271b1;
+  border-radius: 2px;
+  text-shadow: none;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: normal;
+  color: #2271b1;
+  background: #f6f7f7;
+  cursor: pointer;
+}
+#wpcontent form .button-upl:hover, #wpcontent form .button-upl:focus, #wpcontent form .button-upl:active, #wpcontent form .marcode-rmv:hover, #wpcontent form .marcode-rmv:focus, #wpcontent form .marcode-rmv:active {
+  box-shadow: none;
+  outline: none;
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=admin.css.map */
