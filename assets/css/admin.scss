@@ -26,5 +26,35 @@
         }
       }
     }
+    .marcode-upl{
+      text-decoration: none;
+      &:hover,&:focus,&:active{
+        box-shadow: none;
+        outline: none;
+        text-decoration: none;
+      }
+    }
+    .button-upl,.marcode-rmv{
+      text-decoration: none;
+      padding: 4px 8px;
+      position: relative;
+      top: -3px;
+      text-decoration: none;
+      border: 1px solid #2271b1;
+      border-radius: 2px;
+      text-shadow: none;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: normal;
+      color: #2271b1;
+      background: #f6f7f7;
+      cursor: pointer;
+      &:hover,&:focus,&:active{
+        box-shadow: none;
+        outline: none;
+        text-decoration: none;
+      }
+    }
   }
 }
+

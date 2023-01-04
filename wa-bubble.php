@@ -1,19 +1,19 @@
 <?php
 
 /**
-* Plugin Name: Bubble Chat
-* Plugin URI: https://marcode.site/plugin/bubble-chat/
-* Description: Bubble Chat. Floating bubble for your visitors to contact you more easily and quickly.
-* Version: 1.0
-* Requires at least: 5.6
-* Requires PHP: 7.0
-* Author: Marco Mireles
-* Author URI: https://marcomireles.com/
-* License: GPL v2 or later
-* License URI: https://www.gnu.org/licenses/gpl-2.0.html
-* Text Domain: wa-bubble
-* Domain Path: /languages
-*/
+ * Plugin Name: Bubble Chat
+ * Plugin URI: https://marcode.site/plugin/bubble-chat/
+ * Description: Bubble Chat is a whatsapp chat bubble. Floating bubble for your visitors to contact you more easily and quickly.
+ * Version: 1.3
+ * Requires at least: 5.6
+ * Requires PHP: 7.0
+ * Author: Marco Mireles
+ * Author URI: https://marcomireles.com/
+ * License: GPL v2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: wa-bubble
+ * Domain Path: /languages
+ */
 /*
 Bubble Chat is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -53,6 +53,7 @@ if( !class_exists( 'WA_Bubble' )){
 
       add_action('wp_enqueue_scripts',array($this,'register_scripts'),999);
       add_action('admin_enqueue_scripts', array($this,'register_admin_scripts'), 999);
+      add_action('plugin_row_meta', array($this,'filter_plugin_row_meta'),10,4);
 
 		}
 
@@ -60,7 +61,7 @@ if( !class_exists( 'WA_Bubble' )){
             // Path/URL to root of this plugin, with trailing slash.
 			define ( 'WA_BUBBLE_PATH', plugin_dir_path( __FILE__ ) );
       define ( 'WA_BUBBLE_URL', plugin_dir_url( __FILE__ ) );
-      define ( 'WA_BUBBLE_VERSION', '1.0.0' );
+      define ( 'WA_BUBBLE_VERSION', '1.3' );
 		}
 
 		public function add_menu(){
@@ -96,6 +97,11 @@ if( !class_exists( 'WA_Bubble' )){
       if( $hook == 'toplevel_page_wa_bubble_admin'){
         wp_enqueue_style( 'wa-bubble-admin', WA_BUBBLE_URL . 'assets/css/admin.css',array(),WA_BUBBLE_VERSION,'all' );
         wp_register_style('font-roboto','https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap',array(),WA_BUBBLE_VERSION,'all');
+
+        if ( ! did_action( 'wp_enqueue_media' ) ) {
+          wp_enqueue_media();
+        }
+        wp_enqueue_script('wa-bubble_adminjs', WA_BUBBLE_URL .'vendor/js/style.js', array('jquery'), 1.0, true );
       }
     }
 
@@ -129,6 +135,18 @@ if( !class_exists( 'WA_Bubble' )){
         public static function uninstall(){
           delete_option('wa_bubble_options');
         }
+
+
+    public function filter_plugin_row_meta( $links_array, $plugin_file_name, $plugin_data, $status )
+    {
+
+      if (strpos($plugin_file_name, basename(__FILE__))) {
+        // You can still use `array_unshift()` to add links at the beginning.
+        $links_array[] = '<a href="https://paypal.me/marcodeoficial?country.x=MX&locale.x=es_XC">Donate 🍺</a>';
+      }
+
+      return $links_array;
+    }
   }
 }
 

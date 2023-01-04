@@ -18,4 +18,5 @@ if (!function_exists('wa_bubble_options')){
     ) );
 
   }
+
 }
