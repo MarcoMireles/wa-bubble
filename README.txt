@@ -5,7 +5,7 @@ Donate link: https://www.buymeacoffee.com/marcode
 Requires at least: 4.7
 Tested up to: 6.1.1
 Requires PHP: 7.0
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,7 +27,7 @@ Activate and Ready
 
 == Changelog ==
 
-= 1.3.0 2023-01-03 =
+= 1.4.0 2023-01-03 =
 
 *New functionalities were added such as: Agent name and agent image.
 *A new design was created.
