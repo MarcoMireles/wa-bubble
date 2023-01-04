@@ -5,7 +5,7 @@ Donate link: https://www.buymeacoffee.com/marcode
 Requires at least: 4.7
 Tested up to: 6.1.1
 Requires PHP: 7.0
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,12 +21,13 @@ Search or upload the Bubble Chat plugin
 Activate and Ready
 
 == Screenshots ==
-1. Screenshot
-2. Animation
+1. Screenshot 1
+2. Functions 2
+3. Styles 3
 
 == Changelog ==
 
-= 1.3.0 2023-01-03 =
+= 1.4.0 2023-01-03 =
 
 *New functionalities were added such as: Agent name and agent image.
 *A new design was created.
@@ -37,5 +38,4 @@ Activate and Ready
 
 *Select morph or pulse effect
 *Select gap distance from bottom and sides
-
 *Fix - Changes were not applied.

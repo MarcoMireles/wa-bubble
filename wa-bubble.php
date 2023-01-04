@@ -4,7 +4,7 @@
  * Plugin Name: Bubble Chat
  * Plugin URI: https://marcode.site/plugin/bubble-chat/
  * Description: Bubble Chat is a whatsapp chat bubble. Floating bubble for your visitors to contact you more easily and quickly.
- * Version: 1.3
+ * Version: 1.4
  * Requires at least: 5.6
  * Requires PHP: 7.0
  * Author: Marco Mireles
@@ -61,7 +61,7 @@ if( !class_exists( 'WA_Bubble' )){
             // Path/URL to root of this plugin, with trailing slash.
 			define ( 'WA_BUBBLE_PATH', plugin_dir_path( __FILE__ ) );
       define ( 'WA_BUBBLE_URL', plugin_dir_url( __FILE__ ) );
-      define ( 'WA_BUBBLE_VERSION', '1.3' );
+      define ( 'WA_BUBBLE_VERSION', '1.4' );
 		}
 
 		public function add_menu(){
