@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WA Bubble v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2022-07-01 13:24-0500\n"
+"POT-Creation-Date: 2023-01-06 16:13-0600\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -16,80 +16,179 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;"
+"_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;"
+"__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: class.wa-bubble-settings.php:31
+#: class.wa-bubble-settings.php:32
 msgid "Whatsapp Functions"
 msgstr "Funciones de Whatsapp"
 
-#: class.wa-bubble-settings.php:39
+#: class.wa-bubble-settings.php:40
 msgid "Whatsapp Styles"
 msgstr "Estilos de Whatsapp"
 
-#: class.wa-bubble-settings.php:47
+#: class.wa-bubble-settings.php:48
 msgid "Enter the whatsapp number"
 msgstr "Ingresa el numero de whatsapp"
 
-#: class.wa-bubble-settings.php:59
+#: class.wa-bubble-settings.php:60
+msgid "Enter the image of whatsapp bubble"
+msgstr "Ingresa el mensaje principal de whatsapp"
+
+#: class.wa-bubble-settings.php:72
+msgid "Enter the name or title of whatsapp bubble"
+msgstr "Ingresa el titulo o nombre principal del chat"
+
+#: class.wa-bubble-settings.php:84
+msgid "Enter the description of whatsapp bubble"
+msgstr "Ingresa una descripción para el chat"
+
+#: class.wa-bubble-settings.php:96
 msgid "Enter the main message of whatsapp"
 msgstr "Ingresa el mensaje principal de whatsapp"
 
-#: class.wa-bubble-settings.php:71
-msgid "Enter a placeholder text"
-msgstr "Ingresa un texto placeholder"
+#: class.wa-bubble-settings.php:108
+msgid "Enter a placeholder text for the whatsapp message"
+msgstr "Ingresa un mensaje por defecto"
 
-#: class.wa-bubble-settings.php:83
+#: class.wa-bubble-settings.php:120
 msgid "Enter a default text for the whatsapp message"
 msgstr "Ingresa un mensaje por defecto"
 
-#: class.wa-bubble-settings.php:95
+#: class.wa-bubble-settings.php:132
 msgid "Enter the submit button text"
 msgstr "Ingresa texto para el botón de enviar"
 
-#: class.wa-bubble-settings.php:107
+#: class.wa-bubble-settings.php:144
+msgid "Open automatically whatsapp bubble"
+msgstr "¿Abrir automáticamente la burbuja ?"
+
+#: class.wa-bubble-settings.php:160
+msgid "Delay time"
+msgstr "Tiempo de retraso"
+
+#: class.wa-bubble-settings.php:173
+msgid "How many times should it be opened?"
+msgstr "¿Cuántas veces quieres mostrar el chat automatico?"
+
+#: class.wa-bubble-settings.php:187
+msgid "Do you want to show the name of the agent?"
+msgstr "¿Deseas mostrar el nombre del agente?"
+
+#: class.wa-bubble-settings.php:204
+msgid "Enter the name to display"
+msgstr "Ingresa el mensaje principal de whatsapp"
+
+#: class.wa-bubble-settings.php:219
+msgid "Do you want to show the time?"
+msgstr "¿Deseas mostrar la hora?"
+
+#: class.wa-bubble-settings.php:237
 msgid "Select the side of the whatsapp bubble"
 msgstr "Selecciona la ubicación de la burbuja de whatsapp"
 
-#: class.wa-bubble-settings.php:123
+#: class.wa-bubble-settings.php:253
 msgid "Select the size of the WhatsApp bubble"
 msgstr "Selecciona el tamaño de la burbuja de Whatsapp"
 
-#: class.wa-bubble-settings.php:218 class.wa-bubble-settings.php:226
-#: class.wa-bubble-settings.php:234
+#: class.wa-bubble-settings.php:270
+msgid "Animated bubble?"
+msgstr "¿Burbuja animada?"
+
+#: class.wa-bubble-settings.php:286
+msgid "Bottom distance (px)"
+msgstr "Distancia de abajo"
+
+#: class.wa-bubble-settings.php:298
+msgid "Side distance (px)"
+msgstr "Distancia lateral"
+
+#: class.wa-bubble-settings.php:310
+msgid "Enter the z-index value"
+msgstr "Ingresa un valor para el z-index"
+
+#: class.wa-bubble-settings.php:322
+msgid "Select the size of the send button"
+msgstr "Selecciona el tamaño de la burbuja de Whatsapp"
+
+#: class.wa-bubble-settings.php:604
 msgid "The whatsapp number field can not be left empty"
 msgstr "El campo de numero de WhatsApp no puede quedarse vacio"
 
-#: class.wa-bubble-settings.php:219
+#: class.wa-bubble-settings.php:605
 msgid "525555555555"
 msgstr "525555555555"
 
-#: class.wa-bubble-settings.php:227
-msgid "Contact me by whatsapp"
-msgstr "Contactame por Whatsapp"
+#: class.wa-bubble-settings.php:612
+msgid "Enter a message"
+msgstr "Ingresa el mensaje principal de whatsapp"
 
-#: class.wa-bubble-settings.php:235
-msgid "Send"
-msgstr "Enviar"
+#: class.wa-bubble-settings.php:613
+msgid "Receive information about our services:"
+msgstr "Recibe información sobre nuestros servicios:"
 
-#: views/settings-page.php:7
+#: class.wa-bubble-settings.php:627
+msgid "The whatsapp title field can not be left empty"
+msgstr "El campo de numero de WhatsApp no puede quedarse vacio"
+
+#: class.wa-bubble-settings.php:628 class.wa-bubble-settings.php:665
+msgid "MarCode"
+msgstr "MarCode"
+
+#: class.wa-bubble-settings.php:635
+msgid "The whatsapp description field can not be left empty"
+msgstr "El campo de numero de WhatsApp no puede quedarse vacio"
+
+#: class.wa-bubble-settings.php:636
+msgid "Typically replies within a day"
+msgstr "Normalmente responde en un día"
+
+#: class.wa-bubble-settings.php:643
+msgid "Enter a message for the send button"
+msgstr "Ingresa un mensaje para el botón de enviar"
+
+#: class.wa-bubble-settings.php:644
+msgid "Send message"
+msgstr "Enviar Mensaje"
+
+#: class.wa-bubble-settings.php:658
+msgid "No"
+msgstr "No"
+
+#: views/settings-page.php:5
+msgid "Donate 🍺"
+msgstr "Donar 🍺"
+
+#: views/settings-page.php:12
 msgid "Functions Options"
 msgstr "Opciones de funciones"
 
-#: views/settings-page.php:8
+#: views/settings-page.php:13
 msgid "Style Options"
 msgstr "Opciones de estilo"
 
-#: views/settings-page.php:22
+#: views/settings-page.php:27
 msgid "Save Settings"
 msgstr "Guardar configuraciones"
 
-#: wa-bubble.php:65
-msgid "Wa Bubble Options"
+#: wa-bubble.php:69
+msgid "Bubble Chat Options"
 msgstr "Opciones de Wa Bubble"
 
-#: wa-bubble.php:79
+#: wa-bubble.php:83
 msgid "Settings Saved"
 msgstr "Guardar configuraciones"
+
+#~ msgid "Enter a placeholder text"
+#~ msgstr "Ingresa un texto placeholder"
+
+#~ msgid "Contact me by whatsapp"
+#~ msgstr "Contactame por Whatsapp"
+
+#~ msgid "Send"
+#~ msgstr "Enviar"

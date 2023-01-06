@@ -1,5 +1,10 @@
 <div class="wrap wa-bubble-admin-container">
-  <h1 class="title-wa-bubble"><?php echo esc_html(get_admin_page_title());?></h1>
+  <div class="header-settings-page-custom">
+    <h1 class="title-wa-bubble"><?php echo esc_html(get_admin_page_title());?></h1>
+    <ul>
+      <li><a href="https://www.paypal.com/paypalme/marcodeoficial?country.x=MX&locale.x=es_XC"><?php esc_html_e('Donate 🍺','wa-bubble') ?></a></li>
+    </ul>
+  </div>
   <?php
   $actve_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'wa_functions_options';
   ?>
