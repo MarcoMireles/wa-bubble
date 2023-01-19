@@ -9,9 +9,6 @@ if (!class_exists('WA_Bubble_Settings')){
       self::$options = get_option('wa_bubble_options');
       self::$options_style = get_option('wa_bubble_options_style');
       add_action('admin_init',array($this,'admin_init'));
-
-//      var_dump(self::$options);
-//      var_dump(self::$options_style);
     }
 
     public function admin_init(){

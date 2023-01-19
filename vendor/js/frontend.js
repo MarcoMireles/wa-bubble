@@ -68,6 +68,13 @@ jQuery(document).ready(function ($){
       }
    }
 
+   //Z-Indez
+   var zIndex = parseInt(WA_BUBBLE_OPTIONS.zIndex);
+   if(zIndex != 999999){
+      waBubble.css('z-index',zIndex);
+   }
+
+
    // AUTO OPEN
    var autoOpenOption = String(WA_BUBBLE_OPTIONS.autoOpenOption).toLowerCase();
    var autoOpenTimeOption = parseInt(WA_BUBBLE_OPTIONS.timeOpenOption);

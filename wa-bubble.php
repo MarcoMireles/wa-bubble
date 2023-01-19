@@ -4,7 +4,7 @@
  * Plugin Name: Bubble Chat
  * Plugin URI: https://marcode.site/plugin/bubble-chat/
  * Description: Bubble Chat is a whatsapp chat bubble. Floating bubble for your visitors to contact you more easily and quickly.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Requires at least: 5.6
  * Requires PHP: 7.0
  * Author: Marco Mireles
@@ -19,7 +19,7 @@ Bubble Chat is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
 any later version.
- 
+
 Bubble Chat is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
@@ -61,7 +61,7 @@ if( !class_exists( 'WA_Bubble' )){
             // Path/URL to root of this plugin, with trailing slash.
 			define ( 'WA_BUBBLE_PATH', plugin_dir_path( __FILE__ ) );
       define ( 'WA_BUBBLE_URL', plugin_dir_url( __FILE__ ) );
-      define ( 'WA_BUBBLE_VERSION', '2.0.0' );
+      define ( 'WA_BUBBLE_VERSION', '2.0.1' );
 		}
 
 		public function add_menu(){
@@ -85,7 +85,6 @@ if( !class_exists( 'WA_Bubble' )){
       settings_errors('wa_bubble_options');
       require_once (WA_BUBBLE_PATH . 'views/settings-page.php');
     }
-
     public function register_scripts(){
 		  //wp_register_script('wa-bubble-main-js',WA_BUBBLE_URL.'vendor/js/frontend.js',array('jquery'),WA_BUBBLE_VERSION,true);
 		  wp_register_style('wa-bubble-main-css',WA_BUBBLE_URL . 'assets/css/frontend.css',array(),WA_BUBBLE_VERSION,'all');
@@ -147,7 +146,6 @@ if( !class_exists( 'WA_Bubble' )){
         // You can still use `array_unshift()` to add links at the beginning.
         $links_array[] = '<a href="https://paypal.me/marcodeoficial?country.x=MX&locale.x=es_XC">Donate 🍺</a>';
       }
-
       return $links_array;
     }
   }

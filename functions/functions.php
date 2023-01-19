@@ -9,6 +9,8 @@ if (!function_exists('wa_bubble_options')){
 
     $bubbleSide = isset(WA_Bubble_Settings::$options_style['wa_bubble_bubble_side']) ? sanitize_text_field(WA_Bubble_Settings::$options_style['wa_bubble_bubble_side']) : 20;
 
+    $bubbleZIndex = isset(WA_Bubble_Settings::$options_style['wa_bubble_whatsapp_zindex']) ? sanitize_text_field(WA_Bubble_Settings::$options_style['wa_bubble_whatsapp_zindex']) : 20;
+
     $autoOpenOption = isset(WA_Bubble_Settings::$options['wa_bubble_bubble_autoshow']) ? sanitize_text_field(WA_Bubble_Settings::$options['wa_bubble_bubble_autoshow']) : 'no';
 
     $autoOpenTimeOption = isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_open_time']) ? sanitize_text_field(WA_Bubble_Settings::$options['wa_bubble_whatsapp_open_time']) : '3500';
@@ -24,6 +26,7 @@ if (!function_exists('wa_bubble_options')){
       'autoOpenOption' => $autoOpenOption,
       'timeOpenOption' => $autoOpenTimeOption,
       'timesAutoOpenOption' => $timesAutoOpenTimeOption,
+      'zIndex' => $bubbleZIndex,
     ) );
   }
 

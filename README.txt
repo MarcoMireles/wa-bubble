@@ -5,7 +5,7 @@ Donate link: https://www.buymeacoffee.com/marcode
 Requires at least: 4.7
 Tested up to: 6.1.1
 Requires PHP: 7.0
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,10 @@ Activate and Ready
 3. Styles
 
 == Changelog ==
+
+= 2.0.1 2023-01-19 =
+
+*Fix- z-index field that was not saving its value.
 
 = 2.0.0 2023-01-06 =
 
