@@ -2,10 +2,47 @@ jQuery(document).ready(function ($){
 
 
     // console.log(WA_BUBBLE_OPTIONS.bottomPosition);
+    var autoOpen = $('#wa_bubble_bubble_autoshow');
+    var autoOpenSettings = $('.dinamyc-wa_bubble_whatsapp_open_time');
+    var timesAutoOpenSettings = $('.dinamyc-wa_bubble_whatsapp_times_open');
+    var showAgentName = $('#wa_bubble_bubble_dyw_name_agent');
+    var theAgentName = $('.dinamyc-wa_bubble_name_to_display');
+    if(autoOpen.val() == 'Yes') {
+        autoOpenSettings.css('display','table-row');
+        timesAutoOpenSettings.css('display','table-row');
+    }
+    if(showAgentName.val() == 'Yes') {
+        theAgentName.css('display','table-row');
+    }
+
+    $('body').on( 'change',  autoOpen , function(e){
+        e.preventDefault();
+
+        var result = autoOpen[0].value.toString();
+        if ( result == 'Yes'){
+            autoOpenSettings.css('display','table-row');
+            timesAutoOpenSettings.css('display','table-row');
+        }else {
+            autoOpenSettings.css('display','none');
+            timesAutoOpenSettings.css('display','none');
+        }
+
+    });
+
+    $('body').on( 'change',  showAgentName , function(e){
+        e.preventDefault();
+
+        var result = showAgentName[0].value.toString();
+        if ( result == 'Yes'){
+            theAgentName.css('display','table-row');
+        }else {
+            theAgentName.css('display','none');
+        }
+
+    });
 
     // MARCODE
     jQuery(function($){
-
         var imageUrl = $('.image-url');
         var btnRemove = $('.marcode-rmv');
 
@@ -36,7 +73,6 @@ jQuery(document).ready(function ($){
                 }).open();
 
         });
-
         // on remove button click
         $('body').on('click', '.marcode-rmv', function(e){
 
@@ -49,7 +85,7 @@ jQuery(document).ready(function ($){
             button.next().val(''); // emptying the hidden field
             button.hide().prev().html('Upload image');
         });
-
     });
+
 
 });

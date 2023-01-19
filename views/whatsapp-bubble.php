@@ -1,6 +1,7 @@
 
 <?php
 if (WA_Bubble_Settings::$options['wa_bubble_whatsapp_number'] != '' || !empty(WA_Bubble_Settings::$options['wa_bubble_whatsapp_number'])){
+
   ?>
 
   <div id="wa-bubble" class="wa-bubble whatsapp-container <?php echo (isset(WA_Bubble_Settings::$options_style['wa_bubble_bubble_side'])) ? esc_attr(WA_Bubble_Settings::$options_style['wa_bubble_bubble_side']) : 'right';  ?>">
@@ -36,7 +37,19 @@ if (WA_Bubble_Settings::$options['wa_bubble_whatsapp_number'] != '' || !empty(WA
               </div>
             </div>
             <div class="wa-bubble whatsapp-content-description">
+              <?php
+                if(WA_Bubble_Settings::$options['wa_bubble_bubble_dyw_name_agent'] == 'Yes'){
+                ?>
+                  <p class="name-agent"><?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_name_to_display'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_name_to_display']) : 'MarCode';  ?></p>
+              <?php
+                }
+              ?>
               <p class="popup-message"><?php echo (isset(WA_Bubble_Settings::$options['wa_bubble_whatsapp_main_message_whatsapp'])) ? esc_attr(WA_Bubble_Settings::$options['wa_bubble_whatsapp_main_message_whatsapp']) : 'Receive information about our services:';  ?></p>
+              <?php
+              if(WA_Bubble_Settings::$options['wa_bubble_bubble_dyw_show_time'] == 'Yes'){
+                echo '<p class="show-the-time"></p>';
+              }
+              ?>
             </div>
           </div>
 

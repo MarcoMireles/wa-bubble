@@ -9,9 +9,6 @@ if (!class_exists('WA_Bubble_Settings')){
       self::$options = get_option('wa_bubble_options');
       self::$options_style = get_option('wa_bubble_options_style');
       add_action('admin_init',array($this,'admin_init'));
-
-//      var_dump(self::$options);
-//      var_dump(self::$options_style);
     }
 
     public function admin_init(){
@@ -105,7 +102,7 @@ if (!class_exists('WA_Bubble_Settings')){
       // Placeholder text Whatsapp
       add_settings_field(
         'wa_bubble_whatsapp_placeholder',
-        esc_html__('Enter a placeholder text','wa-bubble'),
+        esc_html__('Enter a placeholder text for the whatsapp message','wa-bubble'),
         array($this,'wa_bubble_whatsapp_placeholder_callback'),
         'wa_bubble_page1',
         'wa_bubble_main_section',
@@ -137,6 +134,99 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_whatsapp_submit_button_text_whatsapp'
         )
       );
+
+      // Open automatically whatsapp bubble?
+      add_settings_field(
+        'wa_bubble_bubble_autoshow',
+        esc_html__('Open automatically whatsapp bubble','wa-bubble'),
+        array($this,'wa_bubble_bubble_autoshow_callback'),
+        'wa_bubble_page1',
+        'wa_bubble_main_section',
+        array(
+          'items' => array(
+            'No',
+            'Yes'
+          ),
+          'label_for' => 'wa_bubble_bubble_autoshow'
+        )
+      );
+
+      // Delay time
+      add_settings_field(
+        'wa_bubble_whatsapp_open_time',
+        esc_html__('Delay time','wa-bubble'),
+        array($this,'wa_bubble_whatsapp_open_time_callback'),
+        'wa_bubble_page1',
+        'wa_bubble_main_section',
+        array(
+          'label_for' => 'wa_bubble_whatsapp_open_time',
+          'class' => 'dinamyc-row dinamyc-wa_bubble_whatsapp_open_time'
+        )
+      );
+
+      // How many times should it be opened
+      add_settings_field(
+        'wa_bubble_whatsapp_times_open',
+        esc_html__('How many times should it be opened?','wa-bubble'),
+        array($this,'wa_bubble_whatsapp_times_open_callback'),
+        'wa_bubble_page1',
+        'wa_bubble_main_section',
+        array(
+          'label_for' => 'wa_bubble_whatsapp_times_open',
+          'class' => 'dinamyc-row dinamyc-wa_bubble_whatsapp_times_open'
+        )
+      );
+
+
+      // Do you want to show the name of the agent?
+      add_settings_field(
+        'wa_bubble_bubble_dyw_name_agent',
+        esc_html__('Do you want to show the name of the agent?','wa-bubble'),
+        array($this,'wa_bubble_bubble_dyw_name_agent_callback'),
+        'wa_bubble_page1',
+        'wa_bubble_main_section',
+        array(
+          'items' => array(
+            'Yes',
+            'No'
+          ),
+          'label_for' => 'wa_bubble_bubble_dyw_name_agent'
+        )
+      );
+
+
+      // Enter the name to display
+      add_settings_field(
+        'wa_bubble_name_to_display',
+        esc_html__('Enter the name to display','wa-bubble'),
+        array($this,'wa_bubble_name_to_display_callback'),
+        'wa_bubble_page1',
+        'wa_bubble_main_section',
+        array(
+          'label_for' => 'wa_bubble_name_to_display',
+          'class' => 'dinamyc-row dinamyc-wa_bubble_name_to_display'
+        )
+      );
+
+
+
+      // Do you want to show the time
+      add_settings_field(
+        'wa_bubble_bubble_dyw_show_time',
+        esc_html__('Do you want to show the time?','wa-bubble'),
+        array($this,'wa_bubble_bubble_dyw_show_time_callback'),
+        'wa_bubble_page1',
+        'wa_bubble_main_section',
+        array(
+          'items' => array(
+            'Yes',
+            'No'
+          ),
+          'label_for' => 'wa_bubble_bubble_dyw_show_time'
+        )
+      );
+
+
 
       // Select the side of the bubble
       add_settings_field(
@@ -187,7 +277,7 @@ if (!class_exists('WA_Bubble_Settings')){
         )
       );
 
-      // Submit button text for Whatsapp
+      // Bottom distance
       add_settings_field(
         'wa_bubble_whatsapp_bottom_position',
         esc_html__('Bottom distance (px)','wa-bubble'),
@@ -199,7 +289,7 @@ if (!class_exists('WA_Bubble_Settings')){
         )
       );
 
-      // Submit button text for Whatsapp
+      // Side distance
       add_settings_field(
         'wa_bubble_whatsapp_side_position',
         esc_html__('Side distance (px)','wa-bubble'),
@@ -208,6 +298,18 @@ if (!class_exists('WA_Bubble_Settings')){
         'wa_bubble_style_section',
         array(
           'label_for' => 'wa_bubble_whatsapp_side_position'
+        )
+      );
+
+      // z index
+      add_settings_field(
+        'wa_bubble_whatsapp_zindex',
+        esc_html__('Enter the z-index value','wa-bubble'),
+        array($this,'wa_bubble_whatsapp_zindex_callback'),
+        'wa_bubble_page2',
+        'wa_bubble_style_section',
+        array(
+          'label_for' => 'wa_bubble_whatsapp_zindex'
         )
       );
 
@@ -301,6 +403,93 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
+    // Open automatically whatsapp bubble
+    public function wa_bubble_bubble_autoshow_callback($args){
+      ?>
+      <select id="wa_bubble_bubble_autoshow" name="wa_bubble_options[wa_bubble_bubble_autoshow]">
+        <?php
+        foreach( $args['items'] as $item ):
+          ?>
+          <option value="<?php echo esc_attr( $item ); ?>"
+            <?php
+            isset( self::$options['wa_bubble_bubble_autoshow'] ) ? selected( $item, self::$options['wa_bubble_bubble_autoshow'], true ) : '';
+            ?>
+          >
+            <?php echo esc_html( ucfirst( $item ) ); ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+      <?php
+    }
+
+    // Delay time
+    public function wa_bubble_whatsapp_open_time_callback($args){
+      ?>
+      <div id="container-wa_bubble_whatsapp_open_time" class="box-content">
+        <input type="number" name="wa_bubble_options[wa_bubble_whatsapp_open_time]" value="<?php echo isset(self::$options['wa_bubble_whatsapp_open_time']) ? esc_attr(self::$options['wa_bubble_whatsapp_open_time']) : '3500'; ?>" min="100" max="180000"> <span>(milliseconds)</span>
+      </div>
+      <?php
+    }
+
+    // How many times should it be opened?
+    public function wa_bubble_whatsapp_times_open_callback($args){
+      ?>
+      <div id="container-wa_bubble_whatsapp_times_open" class="box-content">
+        <input type="number" name="wa_bubble_options[wa_bubble_whatsapp_times_open]" value="<?php echo isset(self::$options['wa_bubble_whatsapp_times_open']) ? esc_attr(self::$options['wa_bubble_whatsapp_times_open']) : '2'; ?>" min="1" max="10">
+      </div>
+      <?php
+    }
+
+    // Do you want to show the name of the agent?
+    public function wa_bubble_bubble_dyw_name_agent_callback($args){
+      ?>
+      <select id="wa_bubble_bubble_dyw_name_agent" name="wa_bubble_options[wa_bubble_bubble_dyw_name_agent]">
+        <?php
+        foreach( $args['items'] as $item ):
+          ?>
+          <option value="<?php echo esc_attr( $item ); ?>"
+            <?php
+            isset( self::$options['wa_bubble_bubble_dyw_name_agent'] ) ? selected( $item, self::$options['wa_bubble_bubble_dyw_name_agent'], true ) : selected( $item,'No', true );
+            ?>
+          >
+            <?php echo esc_html( ucfirst( $item ) ); ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+      <?php
+    }
+
+    // Enter the name to display
+    public function wa_bubble_name_to_display_callback($args){
+      ?>
+      <div id="container-wa_bubble_name_to_display" class="box-content">
+        <input type="text" name="wa_bubble_options[wa_bubble_name_to_display]" value="<?php echo isset(self::$options['wa_bubble_name_to_display']) ? esc_attr(self::$options['wa_bubble_name_to_display']) : 'MarCode'; ?>">
+      </div>
+      <?php
+    }
+
+
+    // Do you want to show the name of the agent?
+    public function wa_bubble_bubble_dyw_show_time_callback($args){
+      ?>
+      <select id="wa_bubble_bubble_dyw_show_time" name="wa_bubble_options[wa_bubble_bubble_dyw_show_time]">
+        <?php
+        foreach( $args['items'] as $item ):
+          ?>
+          <option value="<?php echo esc_attr( $item ); ?>"
+            <?php
+            isset( self::$options['wa_bubble_bubble_dyw_show_time'] ) ? selected( $item, self::$options['wa_bubble_bubble_dyw_show_time'], true ) : 'Yes';
+            ?>
+          >
+            <?php echo esc_html( ucfirst( $item ) ); ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+      <?php
+    }
+
+
+
     // Select the side of the bubble
     public function wa_bubble_bubble_side_callback($args){
       ?>
@@ -373,6 +562,14 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
+    // z index de la burbuja
+    public function wa_bubble_whatsapp_zindex_callback($args){
+      ?>
+      <input type="number" name="wa_bubble_options_style[wa_bubble_whatsapp_zindex]" id="wa_bubble_whatsapp_side_position" value="<?php echo isset(self::$options_style['wa_bubble_whatsapp_zindex']) ? esc_attr(self::$options_style['wa_bubble_whatsapp_zindex']) : 100; ?>" max="999999" min="1" placeholder="100">
+      <span>If the chat bubble is above an element that it shouldn't be, enter a smaller number. If, on the other hand, it is below an element and it is not displayed, increase the number.</span>
+      <?php
+    }
+
     // Select the size send button
     public function wa_bubble_send_button_size_callback($args){
       ?>
@@ -409,8 +606,8 @@ if (!class_exists('WA_Bubble_Settings')){
 
           case 'wa_bubble_whatsapp_main_message_whatsapp':
             if( empty( $value )){
-              add_settings_error( 'wa_bubble_options', 'wa_bubble_message', esc_html__('The whatsapp number field can not be left empty','wa-bubble'), 'error' );
-              $value = esc_html__('Contact me by whatsapp','wa-bubble');
+              add_settings_error( 'wa_bubble_options', 'wa_bubble_message', esc_html__('Enter a message','wa-bubble'), 'error' );
+              $value = esc_html__('Receive information about our services:','wa-bubble');
             }
             $new_input[$key] = sanitize_textarea_field( $value );
             break;
@@ -440,8 +637,8 @@ if (!class_exists('WA_Bubble_Settings')){
 
           case 'wa_bubble_whatsapp_submit_button_text_whatsapp':
             if( empty( $value )){
-              add_settings_error( 'wa_bubble_options', 'wa_bubble_message', esc_html__('The whatsapp number field can not be left empty','wa-bubble'), 'error' );
-              $value = esc_html__('Send','wa-bubble');
+              add_settings_error( 'wa_bubble_options', 'wa_bubble_message', esc_html__('Enter a message for the send button','wa-bubble'), 'error' );
+              $value = esc_html__('Send message','wa-bubble');
             }
             $new_input[$key] = sanitize_text_field( $value );
             break;
@@ -450,6 +647,37 @@ if (!class_exists('WA_Bubble_Settings')){
           case 'wa_bubble_whatsapp_default_message':
             $new_input[$key] = sanitize_textarea_field( $value );
             break;
+
+          case 'wa_bubble_bubble_dyw_name_agent':
+          case 'wa_bubble_bubble_autoshow':
+          case 'wa_bubble_bubble_dyw_show_time':
+            if( empty( $value )){
+              $value = esc_html__('No','wa-bubble');
+            }
+            $new_input[$key] = sanitize_text_field( $value );
+            break;
+
+          case 'wa_bubble_name_to_display':
+            if( empty( $value )){
+              $value = esc_html__('MarCode','wa-bubble');
+            }
+            $new_input[$key] = sanitize_text_field( $value );
+            break;
+
+          case 'wa_bubble_whatsapp_times_open':
+            if( empty( $value )){
+              $value = esc_html__(2,'wa-bubble');
+            }
+            $new_input[$key] = sanitize_text_field( $value );
+            break;
+
+          case 'wa_bubble_whatsapp_open_time':
+            if( empty( $value )){
+              $value = esc_html__(3500,'wa-bubble');
+            }
+            $new_input[$key] = sanitize_text_field( $value );
+            break;
+
 
           default:
             $new_input[$key] = sanitize_text_field( $value );
