@@ -96,14 +96,15 @@ if( !class_exists( 'WA_Bubble' )){
       if( $hook == 'toplevel_page_wa_bubble_admin'){
 
         wp_enqueue_script('wa-bubble_adminjs', WA_BUBBLE_URL .'vendor/js/style.js', array('jquery'), 1.0, true );
+        wp_enqueue_script('select2-js', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array(), WA_BUBBLE_VERSION, false );
 
         wp_enqueue_style( 'wa-bubble-admin', WA_BUBBLE_URL . 'assets/css/admin.css',array(),WA_BUBBLE_VERSION,'all' );
         wp_register_style('font-poppins','https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap',array(),WA_BUBBLE_VERSION,'all');
+        wp_enqueue_style( 'select2-css', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css',array(),WA_BUBBLE_VERSION,'all' );
 
         if ( ! did_action( 'wp_enqueue_media' ) ) {
           wp_enqueue_media();
         }
-
       }
     }
 
