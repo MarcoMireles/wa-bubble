@@ -1,6 +1,12 @@
 jQuery(document).ready(function ($){
 
-
+    // $.get(window.location.href, function(url) {
+    //     var tab = new URL(url).searchParams.get("tab");
+    // });
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var tab = new URL(url).searchParams.get("tab");
+    console.log(tab);
     // console.log(WA_BUBBLE_OPTIONS.bottomPosition);
     var autoOpen = $('#wa_bubble_bubble_autoshow');
     var autoOpenSettings = $('.dinamyc-wa_bubble_whatsapp_open_time');
@@ -18,6 +24,7 @@ jQuery(document).ready(function ($){
     $('body').on( 'change',  autoOpen , function(e){
         e.preventDefault();
 
+        if (tab == 'wa_functions_options')
         var result = autoOpen[0].value.toString();
         if ( result == 'Yes'){
             autoOpenSettings.css('display','table-row');
@@ -27,6 +34,14 @@ jQuery(document).ready(function ($){
             timesAutoOpenSettings.css('display','none');
         }
 
+    });
+
+    $('#pages_conditions').select2();
+    var selectPagesCondition = $('#pages_conditions');
+    var pagesCondition = $('#wa_bubble_select_page_show_or_hide');
+    selectPagesCondition.on('change', function (){
+        var str = JSON.stringify($(this).val());
+         pagesCondition.val(str);
     });
 
     $('body').on( 'change',  showAgentName , function(e){
