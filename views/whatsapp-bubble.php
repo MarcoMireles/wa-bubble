@@ -26,62 +26,38 @@ if (WA_Bubble_Settings::$options['wa_bubble_whatsapp_number'] != '' || !empty(WA
 
 
     $page_id = get_the_ID();
-    if ($action == 'Show'){
-      if($pagesID != 'all'){
-        if(is_shop() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_shop_page'] == 'on'){
-          include 'templates/bubble.php';
-        }
-        else if(is_product() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_product_page'] == 'on'){
-          include 'templates/bubble.php';
-        }
-        else if(is_product_category() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_shop_page'] == 'on'){
-          include 'templates/bubble.php';
-        }
-        else if( is_cart() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_cart_page'] == 'on'){
-          include 'templates/bubble.php';
-        }
-        else if( is_checkout() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_checkout_page'] == 'on'){
-          include 'templates/bubble.php';
-        }
-        else if( is_account_page() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_my_account_page'] == 'on'){
-          include 'templates/bubble.php';
-        }else{
-           if (in_array($page_id,$pagesID)){
-             include 'templates/bubble.php';
-           }else{
-             echo 'show '.$page_id;
-           }
-         }
+    if ($pagesID == 'all') {
+      include 'templates/bubble.php';
+    } else {
+      $show_bubble = false;
 
-      }else{
-        include 'templates/bubble.php';
+      if (is_shop() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_shop_page'] == 'on') {
+        $show_bubble = true;
+      } else if (is_product() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_product_page'] == 'on') {
+        $show_bubble = true;
+      } else if (is_product_category() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_shop_page'] == 'on') {
+        $show_bubble = true;
+      } else if (is_cart() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_cart_page'] == 'on') {
+        $show_bubble = true;
+      } else if (is_checkout() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_checkout_page'] == 'on') {
+        $show_bubble = true;
+      } else if (is_account_page() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_my_account_page'] == 'on') {
+        $show_bubble = true;
+      } else {
+        $show_bubble = in_array($page_id, $pagesID);
       }
-    }else{
-      if($pagesID != 'all'){
-        if(is_shop() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_shop_page'] == 'on'){
-          //include 'templates/bubble.php';
+
+      if ($action == 'Show') {
+        if ($show_bubble) {
+          include 'templates/bubble.php';
+        } else {
+          echo 'show ' . $page_id;
         }
-        else if(is_product() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_product_page'] == 'on'){
-          //include 'templates/bubble.php';
-        }
-        else if(is_product_category() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_shop_page'] == 'on'){
-          //include 'templates/bubble.php';
-        }
-        else if( is_cart() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_cart_page'] == 'on'){
-          //include 'templates/bubble.php';
-        }
-        else if( is_checkout() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_checkout_page'] == 'on'){
-          //include 'templates/bubble.php';
-        }
-        else if( is_account_page() && WA_Bubble_Settings::$page_conditions['wa_bubble_woocoomerce_my_account_page'] == 'on'){
-          //include 'templates/bubble.php';
-        }
-        else{
-          if (!in_array($page_id,$pagesID)){
-            include 'templates/bubble.php';
-          }else{
-            echo 'hide '.$page_id;
-          }
+      } else {
+        if (!$show_bubble) {
+          include 'templates/bubble.php';
+        } else {
+          echo 'hide ' . $page_id;
         }
       }
     }
