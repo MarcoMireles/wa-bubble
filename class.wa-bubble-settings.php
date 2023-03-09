@@ -696,7 +696,9 @@ if (!class_exists('WA_Bubble_Settings')){
             <?php echo esc_html( ucfirst( $item ) ); ?>
           </option>
         <?php endforeach; ?>
-      </select>
+      </select><br>
+      <small><?php echo esc_html('The value you select will apply to all pages including WooCommerce pages.','wa-bubble' ); ?></small>
+
       <?php
     }
     // In which pages do you want to / Page Conditions
@@ -772,7 +774,11 @@ if (!class_exists('WA_Bubble_Settings')){
           </option>
         <?php endforeach; ?>
       </select>
-      <small><?php echo esc_html('Leave the field blank if you want it to apply to all pages.','wa-bubble' ); ?></small>
+      <small><?php echo esc_html('If you selected:','wa-bubble' ); ?></small>
+      <br>
+      <small><?php echo esc_html('Show: Leave the field blank if you want it to apply to all pages.','wa-bubble' ); ?></small>
+      <br>
+      <small><?php echo esc_html('Hide: Leave it blank if you want to show it on all pages or select the pages where you want to hide it','wa-bubble' ); ?></small>
       <input hidden type="text" name="wa_bubble_page_conditions[wa_bubble_select_page_show_or_hide]" id="wa_bubble_select_page_show_or_hide" value="<?php echo isset(self::$page_conditions['wa_bubble_select_page_show_or_hide']) ? esc_attr(self::$page_conditions['wa_bubble_select_page_show_or_hide']) : ''; ?>" >
 
       <?php
