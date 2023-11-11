@@ -21,19 +21,37 @@ jQuery(document).ready(function ($){
         theAgentName.css('display','table-row');
     }
 
-    $('body').on( 'change',  autoOpen , function(e){
+    // $('body').on( 'change',  autoOpen , function(e){
+    //     e.preventDefault();
+    //     if (tab == 'wa_functions_options')
+    //     var result = autoOpen[0].value.toString();
+    //     if ( result == 'Yes'){
+    //         autoOpenSettings.css('display','table-row');
+    //         timesAutoOpenSettings.css('display','table-row');
+    //     }else {
+    //         autoOpenSettings.css('display','none');
+    //         timesAutoOpenSettings.css('display','none');
+    //     }
+    //
+    // });
+    $('body').on('change', autoOpen, function(e){
+        console.log('Change event triggered');
         e.preventDefault();
 
-        if (tab == 'wa_functions_options')
-        var result = autoOpen[0].value.toString();
-        if ( result == 'Yes'){
-            autoOpenSettings.css('display','table-row');
-            timesAutoOpenSettings.css('display','table-row');
-        }else {
-            autoOpenSettings.css('display','none');
-            timesAutoOpenSettings.css('display','none');
-        }
+        if (tab == 'wa_functions_options' || !tab) {
+            console.log('Inside the if block');
+            var result = autoOpen[0].value.toString();
 
+            if (result == 'Yes') {
+                console.log('Yes selected');
+                autoOpenSettings.css('display', 'table-row');
+                timesAutoOpenSettings.css('display', 'table-row');
+            } else {
+                console.log('No selected');
+                autoOpenSettings.css('display', 'none');
+                timesAutoOpenSettings.css('display', 'none');
+            }
+        }
     });
 
     $('#pages_conditions').select2();

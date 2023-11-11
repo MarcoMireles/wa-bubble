@@ -2,10 +2,10 @@
 Contributors: marcomireles
 Tags: Floating Chat,whatsapp chat,bubble chat,WhatsApp WooCommerce, whatsapp WordPress, whatsapp floating button,chat,Chat Widget,click to chat,whatsapp business,whatsapp support,marcode
 Donate link: https://www.buymeacoffee.com/marcode
-Requires at least: 4.7
-Tested up to: 6.1.1
+Requires at least: 5.6
+Tested up to: 6.4
 Requires PHP: 7.0
-Stable tag: 3.0
+Stable tag: 3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,12 @@ Activate and Ready
 3. Styles
 
 == Changelog ==
+
+= 3.1 2023-11-11 =
+
+*Added options to define the distance of the sides and bottom for the mobile version.
+*Dropdown bugs fixed
+*The bug that did not show 0 in the timetable was fixed.
 
 = 3.0 2023-03-08 =
 

@@ -5,7 +5,11 @@ if (!function_exists('wa_bubble_options')){
 
     $bottomPosition = isset(WA_Bubble_Settings::$options_style['wa_bubble_whatsapp_bottom_position']) ? sanitize_text_field(WA_Bubble_Settings::$options_style['wa_bubble_whatsapp_bottom_position']) : 20;
 
+    $bottomPositionMobile = isset(WA_Bubble_Settings::$options_style['wa_bubble_whatsapp_bottom_position_mobile']) ? sanitize_text_field(WA_Bubble_Settings::$options_style['wa_bubble_whatsapp_bottom_position_mobile']) : 20;
+
     $sidePosition = isset(WA_Bubble_Settings::$options_style['wa_bubble_whatsapp_side_position']) ? sanitize_text_field(WA_Bubble_Settings::$options_style['wa_bubble_whatsapp_side_position']) : 20;
+
+    $sidePositionMobile = isset(WA_Bubble_Settings::$options_style['wa_bubble_whatsapp_side_position_mobile']) ? sanitize_text_field(WA_Bubble_Settings::$options_style['wa_bubble_whatsapp_side_position_mobile']) : 20;
 
     $bubbleSide = isset(WA_Bubble_Settings::$options_style['wa_bubble_bubble_side']) ? sanitize_text_field(WA_Bubble_Settings::$options_style['wa_bubble_bubble_side']) : 20;
 
@@ -21,7 +25,9 @@ if (!function_exists('wa_bubble_options')){
 
     wp_localize_script('wa-bubble-main-js','WA_BUBBLE_OPTIONS', array(
       'bottomPosition' => $bottomPosition,
+      'bottomPositionMobile' => $bottomPositionMobile,
       'sidePosition' =>$sidePosition,
+      'sidePositionMobile' =>$sidePositionMobile,
       'bubbleSide' => $bubbleSide,
       'autoOpenOption' => $autoOpenOption,
       'timeOpenOption' => $autoOpenTimeOption,

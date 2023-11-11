@@ -1,6 +1,6 @@
 <div class="wrap wa-bubble-admin-container">
   <div class="header-settings-page-custom">
-    <h1 class="title-wa-bubble"><?php echo esc_html(get_admin_page_title());?></h1>
+    <h1 class="title-wa-bubble">Bubble Whatsapp chat</h1>
     <ul>
       <li><a href="https://www.paypal.com/paypalme/marcodeoficial?country.x=MX&locale.x=es_XC"><?php esc_html_e('Donate 🍺','wa-bubble') ?></a></li>
     </ul>
