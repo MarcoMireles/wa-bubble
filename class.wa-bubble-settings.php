@@ -1,15 +1,19 @@
 <?php
 if (!class_exists('WA_Bubble_Settings')){
+
   class WA_Bubble_Settings{
+
 
     public static $options;
     public static $options_style;
     public static $page_conditions;
-
+    public static $page_schedule;
     public function __construct(){
+
       self::$options = get_option('wa_bubble_options');
       self::$options_style = get_option('wa_bubble_options_style');
       self::$page_conditions = get_option('wa_bubble_page_conditions');
+      self::$page_schedule = get_option('wa_bubble_page_schedule');
       add_action('admin_init',array($this,'admin_init'));
     }
 
@@ -27,6 +31,11 @@ if (!class_exists('WA_Bubble_Settings')){
       register_setting(
         'wa_bubble_group3',
         'wa_bubble_page_conditions',
+        array($this,'wa_bubble_validate')
+      );
+      register_setting(
+        'wa_bubble_group4',
+        'wa_bubble_page_schedule',
         array($this,'wa_bubble_validate')
       );
 
@@ -53,6 +62,13 @@ if (!class_exists('WA_Bubble_Settings')){
         'wa_bubble_page3'
       );
 
+      add_settings_section(
+        'wa_bubble_page_schedule_section',
+        esc_html__('Schedule','wa-bubble'),
+        null,
+        'wa_bubble_page4'
+      );
+
       // Whatsapp Number
       add_settings_field(
         'wa_bubble_whatsapp_number',
@@ -64,7 +80,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_whatsapp_number'
         )
       );
-      // Image for Whatsapp
+// Image for Whatsapp
       add_settings_field(
         'wa_bubble_whatsapp_image_whatsapp',
         esc_html__('Enter the image of whatsapp bubble','wa-bubble'),
@@ -75,7 +91,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_whatsapp_image_whatsapp'
         )
       );
-      // Name or title for Whatsapp
+// Name or title for Whatsapp
       add_settings_field(
         'wa_bubble_whatsapp_name_title_whatsapp',
         esc_html__('Enter the name or title of whatsapp bubble','wa-bubble'),
@@ -86,7 +102,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_whatsapp_name_title_whatsapp'
         )
       );
-      // Name or title for Whatsapp
+// Name or title for Whatsapp
       add_settings_field(
         'wa_bubble_whatsapp_description_whatsapp',
         esc_html__('Enter the description of whatsapp bubble','wa-bubble'),
@@ -97,7 +113,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_whatsapp_description_whatsapp'
         )
       );
-      // Main message for Whatsapp
+// Main message for Whatsapp
       add_settings_field(
         'wa_bubble_whatsapp_main_message_whatsapp',
         esc_html__('Enter the main message of whatsapp','wa-bubble'),
@@ -108,7 +124,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_whatsapp_main_message_whatsapp'
         )
       );
-      // Placeholder text Whatsapp
+// Placeholder text Whatsapp
       add_settings_field(
         'wa_bubble_whatsapp_placeholder',
         esc_html__('Enter a placeholder text for the whatsapp message','wa-bubble'),
@@ -119,7 +135,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_whatsapp_placeholder'
         )
       );
-      // Default message for Whatsapp
+// Default message for Whatsapp
       add_settings_field(
         'wa_bubble_whatsapp_default_message',
         esc_html__('Enter a default text for the whatsapp message','wa-bubble'),
@@ -130,7 +146,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_whatsapp_default_message'
         )
       );
-      // Submit button text for Whatsapp
+// Submit button text for Whatsapp
       add_settings_field(
         'wa_bubble_whatsapp_submit_button_text_whatsapp',
         esc_html__('Enter the submit button text','wa-bubble'),
@@ -141,7 +157,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_whatsapp_submit_button_text_whatsapp'
         )
       );
-      // Open automatically whatsapp bubble?
+// Open automatically whatsapp bubble?
       add_settings_field(
         'wa_bubble_bubble_autoshow',
         esc_html__('Open automatically whatsapp bubble','wa-bubble'),
@@ -156,7 +172,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_bubble_autoshow'
         )
       );
-      // Delay time
+// Delay time
       add_settings_field(
         'wa_bubble_whatsapp_open_time',
         esc_html__('Delay time','wa-bubble'),
@@ -168,7 +184,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'class' => 'dinamyc-row dinamyc-wa_bubble_whatsapp_open_time'
         )
       );
-      // How many times should it be opened
+// How many times should it be opened
       add_settings_field(
         'wa_bubble_whatsapp_times_open',
         esc_html__('How many times should it be opened?','wa-bubble'),
@@ -180,7 +196,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'class' => 'dinamyc-row dinamyc-wa_bubble_whatsapp_times_open'
         )
       );
-      // Do you want to show the name of the agent?
+// Do you want to show the name of the agent?
       add_settings_field(
         'wa_bubble_bubble_dyw_name_agent',
         esc_html__('Do you want to show the name of the agent?','wa-bubble'),
@@ -195,7 +211,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_bubble_dyw_name_agent'
         )
       );
-      // Enter the name to display
+// Enter the name to display
       add_settings_field(
         'wa_bubble_name_to_display',
         esc_html__('Enter the name to display','wa-bubble'),
@@ -207,7 +223,7 @@ if (!class_exists('WA_Bubble_Settings')){
           'class' => 'dinamyc-row dinamyc-wa_bubble_name_to_display'
         )
       );
-      // Do you want to show the time
+// Do you want to show the time
       add_settings_field(
         'wa_bubble_bubble_dyw_show_time',
         esc_html__('Do you want to show the time?','wa-bubble'),
@@ -222,6 +238,8 @@ if (!class_exists('WA_Bubble_Settings')){
           'label_for' => 'wa_bubble_bubble_dyw_show_time'
         )
       );
+
+
       // Select the side of the bubble
       add_settings_field(
         'wa_bubble_bubble_side',
@@ -449,11 +467,19 @@ if (!class_exists('WA_Bubble_Settings')){
         );
       }
 
-    }
 
+      add_settings_field(
+        'wa_bubble_timezone_select_field',
+        esc_html__('Zona Horaria','wa-bubble'),
+        array($this,'wa_bubble_timezone_select_field_callback'),
+        'wa_bubble_page4',
+        'wa_bubble_page_schedule_section'
+      );
+
+    }
     /**
      *
-     * STYLE SECTION
+     * FUNCTION SECTION
      *
      */
 
@@ -465,7 +491,7 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
-    // Callback para la imagen de Whatsapp
+// Callback para la imagen de Whatsapp
     public function wa_bubble_whatsapp_image_whatsapp_callback($args) {
       $image = isset(self::$options['wa_bubble_whatsapp_image_whatsapp']) ? esc_attr(self::$options['wa_bubble_whatsapp_image_whatsapp']) : '';
 
@@ -484,7 +510,7 @@ if (!class_exists('WA_Bubble_Settings')){
       }
     }
 
-    // Callback para el nombre/título de Whatsapp
+// Callback para el nombre/título de Whatsapp
     public function wa_bubble_whatsapp_name_title_whatsapp_callback($args) {
       $text = isset(self::$options['wa_bubble_whatsapp_name_title_whatsapp']) ? esc_attr(self::$options['wa_bubble_whatsapp_name_title_whatsapp']) : '';
       ?>
@@ -492,7 +518,7 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
-    // Callback para la descripción de Whatsapp
+// Callback para la descripción de Whatsapp
     public function wa_bubble_whatsapp_description_whatsapp_callback($args) {
       $text = isset(self::$options['wa_bubble_whatsapp_description_whatsapp']) ? esc_attr(self::$options['wa_bubble_whatsapp_description_whatsapp']) : '';
       ?>
@@ -500,35 +526,35 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
-    // Callback para el mensaje principal de Whatsapp
+// Callback para el mensaje principal de Whatsapp
     public function wa_bubble_whatsapp_main_message_whatsapp_callback($args) {
       ?>
       <textarea name="wa_bubble_options[wa_bubble_whatsapp_main_message_whatsapp]" id="wa_bubble_whatsapp_main_message_whatsapp" cols="40"  rows="5"><?php echo isset(self::$options['wa_bubble_whatsapp_main_message_whatsapp']) ? esc_attr(self::$options['wa_bubble_whatsapp_main_message_whatsapp']) : ''; ?></textarea>
       <?php
     }
 
-    // Callback para el marcador de posición de Whatsapp
+// Callback para el marcador de posición de Whatsapp
     public function wa_bubble_whatsapp_placeholder_callback($args) {
       ?>
       <textarea name="wa_bubble_options[wa_bubble_whatsapp_placeholder]" id="wa_bubble_whatsapp_placeholder" cols="40"  rows="5"><?php echo isset(self::$options['wa_bubble_whatsapp_placeholder']) ? esc_attr(self::$options['wa_bubble_whatsapp_placeholder']) : ''; ?></textarea>
       <?php
     }
 
-    // Callback para el mensaje predeterminado de Whatsapp
+// Callback para el mensaje predeterminado de Whatsapp
     public function wa_bubble_whatsapp_default_message_callback($args) {
       ?>
       <textarea name="wa_bubble_options[wa_bubble_whatsapp_default_message]" id="wa_bubble_whatsapp_default_message" cols="40"  rows="5"><?php echo isset(self::$options['wa_bubble_whatsapp_default_message']) ? esc_attr(self::$options['wa_bubble_whatsapp_default_message']) : ''; ?></textarea>
       <?php
     }
 
-    // Callback para el texto del botón de enviar en Whatsapp
+// Callback para el texto del botón de enviar en Whatsapp
     public function wa_bubble_whatsapp_submit_button_text_whatsapp_callback($args) {
       ?>
       <input type="text" name="wa_bubble_options[wa_bubble_whatsapp_submit_button_text_whatsapp]" value="<?php echo isset(self::$options['wa_bubble_whatsapp_submit_button_text_whatsapp']) ? esc_attr(self::$options['wa_bubble_whatsapp_submit_button_text_whatsapp']) : ''; ?>">
       <?php
     }
 
-    // Callback para mostrar automáticamente la burbuja de Whatsapp
+// Callback para mostrar automáticamente la burbuja de Whatsapp
     public function wa_bubble_bubble_autoshow_callback($args) {
       ?>
       <select id="wa_bubble_bubble_autoshow" name="wa_bubble_options[wa_bubble_bubble_autoshow]">
@@ -547,7 +573,7 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
-    // Callback para el tiempo de retardo
+// Callback para el tiempo de retardo
     public function wa_bubble_whatsapp_open_time_callback($args) {
       ?>
       <!-- Contenedor para el tiempo de retardo -->
@@ -557,7 +583,7 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
-    // Callback para la cantidad de veces que se debe abrir
+// Callback para la cantidad de veces que se debe abrir
     public function wa_bubble_whatsapp_times_open_callback($args) {
       ?>
       <!-- Contenedor para la cantidad de veces que se debe abrir -->
@@ -567,7 +593,7 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
-    // Callback para mostrar el nombre del agente
+// Callback para mostrar el nombre del agente
     public function wa_bubble_bubble_dyw_name_agent_callback($args) {
       ?>
       <!-- Selección para mostrar el nombre del agente -->
@@ -581,7 +607,7 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
-    // Callback para ingresar el nombre a mostrar
+// Callback para ingresar el nombre a mostrar
     public function wa_bubble_name_to_display_callback($args) {
       ?>
       <!-- Contenedor para el nombre a mostrar -->
@@ -591,7 +617,7 @@ if (!class_exists('WA_Bubble_Settings')){
       <?php
     }
 
-    // Callback para mostrar el tiempo
+// Callback para mostrar el tiempo
     public function wa_bubble_bubble_dyw_show_time_callback($args) {
       ?>
       <!-- Selección para mostrar el tiempo -->
@@ -853,6 +879,17 @@ if (!class_exists('WA_Bubble_Settings')){
 
     public function wa_bubble_woocoomerce_my_account_page_callback($args) {
       $this->woocommerce_page_callback('wa_bubble_woocoomerce_my_account_page', 'My Account Page');
+    }
+
+    /**
+     *
+     * SCHEDULE SECTION
+     *
+     */
+
+    public function wa_bubble_timezone_select_field_callback($args){
+      include 'inc/schedule/timezone-select.php';
+//      echo 'hello';
     }
 
     // VALIDATE

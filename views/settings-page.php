@@ -12,6 +12,7 @@
     <a href="?page=wa_bubble_admin&tab=wa_functions_options" class="nav-tab <?php echo $actve_tab == 'wa_functions_options' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Functions Options','wa-bubble') ?></a>
     <a href="?page=wa_bubble_admin&tab=wa_bubble_styles" class="nav-tab <?php echo $actve_tab == 'wa_bubble_styles' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Style Options','wa-bubble') ?></a>
     <a href="?page=wa_bubble_admin&tab=wa_bubble_page_conditions" class="nav-tab <?php echo $actve_tab == 'wa_bubble_page_conditions' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Page Conditions','wa-bubble') ?></a>
+    <a href="?page=wa_bubble_admin&tab=wa_bubble_page_schedule" class="nav-tab <?php echo $actve_tab == 'wa_bubble_page_schedule' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Schedule','wa-bubble') ?></a>
   </h2>
   <form action="options.php" method="post">
 
@@ -22,9 +23,12 @@
     }else if($actve_tab == 'wa_bubble_styles'){
       settings_fields('wa_bubble_group2');
       do_settings_sections('wa_bubble_page2');
-    }else{
+    }else if($actve_tab == 'wa_bubble_page_conditions'){
       settings_fields('wa_bubble_group3');
       do_settings_sections('wa_bubble_page3');
+    }else{
+      settings_fields('wa_bubble_group4');
+      do_settings_sections('wa_bubble_page4');
     }
 
 
